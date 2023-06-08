@@ -1,4 +1,4 @@
-[DEMO LING](https://fe-feb23-team4.github.io/product_catalog_fe/)
+[DEMO LINK](https://fe-feb23-team4.github.io/product_catalog_fe/)
 
 # Getting Started with Create React App
 

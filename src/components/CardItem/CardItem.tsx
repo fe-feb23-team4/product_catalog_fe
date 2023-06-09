@@ -68,6 +68,7 @@ export const CardItem = () => {
         <ins className={cl.cardItem__priceDiscount}>{phone.priceDiscount}</ins>
 
         <del className={cl.cardItem__priceRegular}>{phone.priceRegular}</del>
+        <del className={cl.cardItem__priceRegular}>{phone.priceRegular}</del>
       </div>
     </div>
   );

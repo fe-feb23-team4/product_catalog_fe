@@ -1,4 +1,4 @@
 export interface Phone {
-  id: number,
+  id: number;
   // more types here
 }

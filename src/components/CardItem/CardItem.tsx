@@ -8,7 +8,7 @@ const phone = {
   capacityAvailable: ['64GB', '128GB', '256GB'],
   capacity: '64GB',
   priceRegular: 932,
-  priceDiscount: 880,
+  priceDiscount: 888,
   colorsAvailable: ['black', 'green', 'yellow', 'white', 'purple', 'red'],
   color: 'red',
   images: [
@@ -65,10 +65,27 @@ export const CardItem = () => {
       <h3 className={cl.cardItem__name}>{phone.name}</h3>
 
       <div className={cl.cardItem__price}>
-        <ins className={cl.cardItem__priceDiscount}>{phone.priceDiscount}</ins>
+        <ins className={cl.cardItem__priceDiscount}>
+          {`$${phone.priceDiscount ? phone.priceDiscount : phone.priceRegular}`}
+        </ins>
 
-        <del className={cl.cardItem__priceRegular}>{phone.priceRegular}</del>
-        <del className={cl.cardItem__priceRegular}>{phone.priceRegular}</del>
+        <del className={cl.cardItem__priceRegular}>
+          {phone.priceDiscount && `$${phone.priceRegular}`}
+        </del>
+      </div>
+
+      <div className={cl.cardItem__params}>
+        <div className={cl.cardItem__paramsName}>
+          <p>Screen</p>
+          <p>Capacity</p>
+          <p>RAM</p>
+        </div>
+
+        <div className={cl.cardItem__paramsValue}>
+          <p>{phone.screen}</p>
+          <p>{`${phone.capacity.slice(0, -2)} ${phone.capacity.slice(-2)}`}</p>
+          <p>{`${phone.ram.slice(0, -2)} ${phone.ram.slice(-2)}`}</p>
+        </div>
       </div>
     </div>
   );

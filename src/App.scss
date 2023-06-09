@@ -1,4 +1,8 @@
-@import './styles/reset.scss';
+@import 'styles/fonts/fonts';
+
+p {
+  font-family: 'Mont-Semibold', serif;
+}
 
 .App {
   text-align: center;

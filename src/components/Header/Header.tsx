@@ -1,28 +1,27 @@
-import React, { useState } from 'react';
+/* eslint-disable max-len */
+import React from 'react';
 import styles from './Header.module.scss';
+import { Nav } from '../Nav/Nav';
+import logo from '../../assets/Logo.svg';
+import heartIcon from '../../assets/Heart-not-filled-icon.svg';
+import cartIcon from '../../assets/Cart-icon.svg';
 
 const Header = () => {
-  const [isActive] = useState(false);
-
   return (
-    <header
-      className={`${styles.header} ${isActive ? styles['header--active'] : ''}`}
-    >
-      <nav className={styles.header__nav}>
-        <ul className={styles.header__navList}>
-          <li className={styles.header__navItem}>
-            <a href="/" className={styles.header__navLink}>
-              Home
-            </a>
-          </li>
-          <li className={styles.header__navItem}>
-            <a href="/about" className={styles.header__navLink}>
-              About
-            </a>
-          </li>
-          {/* Додайте інші пункти меню */}
-        </ul>
-      </nav>
+    <header className={styles.header}>
+      <button type="button">
+        <img src={logo} alt="Saint Coders Logo" />
+      </button>
+
+      <Nav />
+
+      <button type="button">
+        <img src={heartIcon} alt="Heart Icon" />
+      </button>
+
+      <button type="button" className={styles.header__button}>
+        <img src={cartIcon} alt="Cart icon" />
+      </button>
     </header>
   );
 };

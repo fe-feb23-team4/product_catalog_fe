@@ -1,18 +1,31 @@
+import styles from './Nav.module.scss';
+
 export const Nav = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <a href="/">Home</a>
+    <nav className={styles.nav}>
+      <ul className={styles.ul}>
+        <li className={styles.li}>
+          <a href="/" className={styles.a}>
+            Home
+          </a>
         </li>
-        <li>
-          <a href="/phones">Phones</a>
+
+        <li className={styles.li}>
+          <a href="/phones" className={styles.a}>
+            Phones
+          </a>
         </li>
-        <li>
-          <a href="/tablets">Tablets</a>
+
+        <li className={styles.li}>
+          <a href="/tablets" className={styles.a}>
+            Tablets
+          </a>
         </li>
-        <li>
-          <a href="/accesories">Accesories</a>
+
+        <li className={styles.li}>
+          <a href="/accesories" className={styles.a}>
+            Accesories
+          </a>
         </li>
       </ul>
     </nav>

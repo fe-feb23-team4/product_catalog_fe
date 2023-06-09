@@ -1,3 +1,9 @@
 .header {
   background-color: #0f1121;
+  width: 100%;
+  display: flex;
+  &__button {
+    width: 64px;
+    height: 64px;
+  }
 }

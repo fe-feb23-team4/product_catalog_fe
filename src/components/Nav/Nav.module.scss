@@ -1,0 +1,25 @@
+.nav {
+  width: 100%;
+  display: flex;
+}
+
+.ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 2px solid red;
+}
+
+.li {
+  border: 2px solid green;
+}
+
+.a {
+  border: 2px solid blue;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 250ms ease-in-out;
+}

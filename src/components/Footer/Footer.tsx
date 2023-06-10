@@ -1,30 +1,30 @@
-import styles from './Footer.module.scss';
+import cl from './Footer.module.scss';
 import logo from './footer_logo.svg';
 import arrow from './arrow.svg';
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footer__container}>
-        <div className={styles.footer__image}>
+    <footer className={cl.footer}>
+      <div className={cl.footer__container}>
+        <div className={cl.footer__image}>
           <img src={logo} alt="Footer_logo" />
         </div>
-        <div className={styles.footer__navlist}>
-          <a href="/" className={styles.footer__navItem}>
+        <div className={cl.footer__navlist}>
+          <a href="/" className={cl.footer__navItem}>
             Github
           </a>
-          <a href="/" className={styles.footer__navItem}>
+          <a href="/" className={cl.footer__navItem}>
             Contacts
           </a>
-          <a href="/" className={styles.footer__navItem}>
+          <a href="/" className={cl.footer__navItem}>
             rights
           </a>
         </div>
-        <div className={styles.footer__button__box}>
-          <p className={styles.footer__button__box__text}>Back to top</p>
+        <div className={cl.footer__button__box}>
+          <p className={cl.footer__button__box__text}>Back to top</p>
           <button
             type="button"
-            className={styles.footer__button}
+            className={cl.footer__button}
           >
             <img src={arrow} alt="Button_icon" />
           </button>

@@ -2,7 +2,6 @@
 @import '../../styles/utils/mixins.scss';
 @import '../../styles/fonts/fonts.scss';
 
-
 .nav {
   width: 100%;
   display: flex;
@@ -21,7 +20,7 @@
       display: flex;
       margin-right: 64px;
       font-family: 'Mont-bold';
-      
+
       @include tablet {
         margin-right: 32px;
       }
@@ -53,9 +52,3 @@
     }
   }
 }
-
-
-
-
-
-

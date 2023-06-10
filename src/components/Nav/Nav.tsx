@@ -1,29 +1,29 @@
-import styles from './Nav.module.scss';
+import sl from './Nav.module.scss';
 
 export const Nav = () => {
   return (
-    <nav className={styles.nav}>
-      <ul className={styles.ul}>
-        <li className={styles.li}>
-          <a href="/" className={styles.a}>
+    <nav className={sl.nav}>
+      <ul className={sl.ul}>
+        <li className={sl.li}>
+          <a href="/" className={sl.a}>
             Home
           </a>
         </li>
 
-        <li className={styles.li}>
-          <a href="/phones" className={styles.a}>
+        <li className={sl.li}>
+          <a href="/phones" className={sl.a}>
             Phones
           </a>
         </li>
 
-        <li className={styles.li}>
-          <a href="/tablets" className={styles.a}>
+        <li className={sl.li}>
+          <a href="/tablets" className={sl.a}>
             Tablets
           </a>
         </li>
 
-        <li className={styles.li}>
-          <a href="/accesories" className={styles.a}>
+        <li className={sl.li}>
+          <a href="/accesories" className={sl.a}>
             Accesories
           </a>
         </li>

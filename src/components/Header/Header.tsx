@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import cl from './Header.module.scss';
 import { Nav } from '../Nav/Nav';
 import logo from '../../assets/Logo.svg';
@@ -5,7 +7,11 @@ import heart from '../../assets/Heart.svg';
 import cart from '../../assets/Cart.svg';
 import burger from '../../assets/Burger.svg';
 
-const Header = () => {
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+
+export const Header = () => {
+  const [isBurgerActive, setIsBurgerActive] = useState(false);
+
   return (
     <header className={cl.header}>
       <a className={cl.logo} href="/">
@@ -23,12 +29,18 @@ const Header = () => {
           <img src={cart} alt="cart_icon" />
         </button>
 
-        <button type="button" className={`${cl.button} ${cl.burger}`}>
+        <button
+          type="button"
+          className={`${cl.button} ${cl.burger}`}
+          onClick={() => setIsBurgerActive(!isBurgerActive)}
+        >
           <img src={burger} alt="burger_icon" />
         </button>
       </div>
+      <BurgerMenu
+        isBurgerActive={isBurgerActive}
+        setIsBurgerActive={setIsBurgerActive}
+      />
     </header>
   );
 };
-
-export default Header;

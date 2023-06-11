@@ -1,33 +1,37 @@
+import React from 'react';
+import { HashRouter, NavLink } from 'react-router-dom';
 import cl from './Nav.module.scss';
 
 export const Nav = () => {
   return (
-    <nav className={cl.nav}>
-      <ul className={cl.ul}>
-        <li className={cl.li}>
-          <a href="/" className={cl.a}>
-            Home
-          </a>
-        </li>
+    <HashRouter>
+      <nav className={cl.nav}>
+        <ul className={cl.ul}>
+          <li className={cl.li}>
+            <NavLink to="/" className={cl.a}>
+              Home
+            </NavLink>
+          </li>
 
-        <li className={cl.li}>
-          <a href="/phones" className={cl.a}>
-            Phones
-          </a>
-        </li>
+          <li className={cl.li}>
+            <NavLink to="/phones" className={cl.a}>
+              Phones
+            </NavLink>
+          </li>
 
-        <li className={cl.li}>
-          <a href="/tablets" className={cl.a}>
-            Tablets
-          </a>
-        </li>
+          <li className={cl.li}>
+            <NavLink to="/tablets" className={cl.a}>
+              Tablets
+            </NavLink>
+          </li>
 
-        <li className={cl.li}>
-          <a href="/accesories" className={cl.a}>
-            Accesories
-          </a>
-        </li>
-      </ul>
-    </nav>
+          <li className={cl.li}>
+            <NavLink to="/accessories" className={cl.a}>
+              Accessories
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </HashRouter>
   );
 };

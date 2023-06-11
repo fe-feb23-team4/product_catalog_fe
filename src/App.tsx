@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import { CardItem } from './components/CardItem';
-import Header from './components/Header/Header';
+import { Header } from './components/Header/Header';
 
 function App() {
   return (

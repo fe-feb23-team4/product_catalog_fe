@@ -16,7 +16,9 @@ export const BurgerMenu: FC<Props> = ({
   isBurgerActive,
   setIsBurgerActive,
 }) => {
-  const menuClass = isBurgerActive ? `${cl.burger_menu} ${cl.active}` : cl.burger_menu;
+  const menuClass = isBurgerActive
+    ? `${cl.burger_menu} ${cl.active}`
+    : cl.burger_menu;
 
   const handleClick = () => {
     setIsBurgerActive(!isBurgerActive);

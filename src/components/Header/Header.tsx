@@ -1,13 +1,13 @@
 import { useState } from 'react';
-
 import cl from './Header.module.scss';
+
 import { Nav } from '../Nav/Nav';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+
 import logo from '../../assets/Logo.svg';
 import heart from '../../assets/Heart.svg';
 import cart from '../../assets/Cart.svg';
 import burger from '../../assets/Burger.svg';
-
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export const Header = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);

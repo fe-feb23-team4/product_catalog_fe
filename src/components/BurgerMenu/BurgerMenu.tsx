@@ -1,4 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable max-len */
 import { FC } from 'react';
+import cn from 'classnames';
 import { HashRouter, NavLink } from 'react-router-dom';
 import cl from './BurgerMenu.module.scss';
 import logo from '../../assets/Logo.svg';
@@ -49,25 +52,37 @@ export const BurgerMenu: FC<Props> = ({
         <nav className={cl.nav}>
           <ul className={cl.ul}>
             <li className={cl.li}>
-              <NavLink to="/" className={cl.a}>
+              <NavLink
+                to="/"
+                className={({ isActive }) => cn(cl.a, { [cl.active]: isActive })}
+              >
                 Home
               </NavLink>
             </li>
 
             <li className={cl.li}>
-              <NavLink to="/phones" className={cl.a}>
+              <NavLink
+                to="/phones"
+                className={({ isActive }) => cn(cl.a, { [cl.active]: isActive })}
+              >
                 Phones
               </NavLink>
             </li>
 
             <li className={cl.li}>
-              <NavLink to="/tablets" className={cl.a}>
+              <NavLink
+                to="/tablets"
+                className={({ isActive }) => cn(cl.a, { [cl.active]: isActive })}
+              >
                 Tablets
               </NavLink>
             </li>
 
             <li className={cl.li}>
-              <NavLink to="/accessories" className={cl.a}>
+              <NavLink
+                to="/accessories"
+                className={({ isActive }) => cn(cl.a, { [cl.active]: isActive })}
+              >
                 Accessories
               </NavLink>
             </li>

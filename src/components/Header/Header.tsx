@@ -21,13 +21,13 @@ export const Header = () => {
       <Nav />
 
       <div className={cl.button_group}>
-        <button type="button" className={`${cl.button} ${cl.heart}`}>
+        <a href="/favourite" className={`${cl.button} ${cl.heart}`}>
           <img src={heart} alt="heart_icon" />
-        </button>
+        </a>
 
-        <button type="button" className={`${cl.button} ${cl.cart}`}>
+        <a href="/cart" className={`${cl.button} ${cl.cart}`}>
           <img src={cart} alt="cart_icon" />
-        </button>
+        </a>
 
         <button
           type="button"

@@ -10,21 +10,19 @@ export const FavoriteBtn = () => {
       className={cl.button}
       onClick={() => setIsFavorite(!isFavorite)}
     >
-      {!isFavorite
-        ? (
-          <img
-            src="/product_catalog_fe/favorite.svg"
-            alt="favor"
-            className={isFavorite ? cl.pressed : ''}
-          />
-        )
-        : (
-          <img
-            src="/product_catalog_fe/favorite2.svg"
-            alt="favor"
-            className={isFavorite ? cl.pressed : ''}
-          />
-        )}
+      {!isFavorite ? (
+        <img
+          src="/product_catalog_fe/favorite.svg"
+          alt="favor"
+          className={isFavorite ? cl.pressed : ''}
+        />
+      ) : (
+        <img
+          src="/product_catalog_fe/favorite2.svg"
+          alt="favor"
+          className={isFavorite ? cl.pressed : ''}
+        />
+      )}
     </button>
   );
 };

@@ -1,0 +1,23 @@
+@import '../../styles/utils/mixins.scss';
+
+.product_catalog {
+    margin: auto;
+    max-width: 1200px;
+    background-color: #2A2932;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: start;
+    justify-items: center;
+    gap:16px;
+    padding: 0px 32px 0px 32px;
+
+      @include tablet {
+        padding: 0px 32px 0px 32px;
+        @include gridQuerry(2);
+      }
+  
+      @include mobile {
+        padding: 0 24px;
+        @include gridQuerry(1);
+      }
+}

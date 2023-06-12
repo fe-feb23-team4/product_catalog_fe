@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react';
 import cl from './CardItem.module.scss';
 import { AddToCardBtn } from '../AddToCardBtn';
 import { FavoriteBtn } from '../FavoriteBtn';
@@ -19,6 +20,37 @@ const phone = {
 };
 
 export const CardItem = () => {
+  const [isAddToCard, setIsAddToCard] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleAction = useCallback((action: string) => {
+    if (action === 'addToCard') {
+      setIsAddToCard((prevState) => !prevState);
+      localStorage.setItem(
+        'AddedToCard',
+        isAddToCard ? '' : phone.phoneId,
+      );
+    } else if (action === 'addToFavorite') {
+      setIsFavorite((prevState) => !prevState);
+      localStorage.setItem(
+        'AddedToFavorite',
+        isFavorite ? '' : phone.phoneId,
+      );
+    }
+  }, [isAddToCard, isFavorite]);
+
+  useEffect(() => {
+    const addedToCard = localStorage.getItem('AddedToCard');
+
+    setIsAddToCard(addedToCard === phone.phoneId);
+  }, [phone.phoneId]);
+
+  useEffect(() => {
+    const addedToFavorite = localStorage.getItem('AddedToFavorite');
+
+    setIsFavorite(addedToFavorite === phone.phoneId);
+  }, [phone.phoneId]);
+
   return (
     <div className={cl.cardItem}>
       <div className={cl.cardItem__img}>
@@ -54,8 +86,14 @@ export const CardItem = () => {
         </div>
       </div>
       <div className={cl.cardItem__btnContainer}>
-        <AddToCardBtn />
-        <FavoriteBtn />
+        <AddToCardBtn
+          isAddToCard={isAddToCard}
+          handleAddToCard={() => handleAction('addToCard')}
+        />
+        <FavoriteBtn
+          isFavorite={isFavorite}
+          handleAddToFavorite={() => handleAction('addToFavorite')}
+        />
       </div>
     </div>
   );

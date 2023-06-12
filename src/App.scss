@@ -1,5 +1,10 @@
 @import 'styles/fonts/fonts';
 @import 'styles/variables/variables';
+@import 'styles/reset';
+
+* {
+  box-sizing: border-box;
+}
 
 p {
   font-family: 'Mont-Semibold', serif;

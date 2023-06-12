@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
 import cl from './FavoriteBtn.module.scss';
 
-export const FavoriteBtn = () => {
-  const [isFavorite, setIsFavorite] = useState(true);
+interface Props {
+  isFavorite: boolean;
+  handleAddToFavorite: () => void;
+}
 
+export const FavoriteBtn: React.FC<Props> = ({
+  isFavorite,
+  handleAddToFavorite,
+}) => {
   return (
     <button
       type="button"
       className={cl.button}
-      onClick={() => setIsFavorite(!isFavorite)}
+      onClick={handleAddToFavorite}
     >
       {!isFavorite
         ? (

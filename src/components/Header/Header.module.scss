@@ -1,9 +1,73 @@
+@import '../../styles/variables/variables.scss';
+@import '../../styles/utils/mixins.scss';
+
 .header {
-  background-color: #0f1121;
-  width: 100%;
+  max-width: 100%;
+  background-color: var(--black);
   display: flex;
-  &__button {
-    width: 64px;
-    height: 64px;
+  border-bottom: 1px solid var(--surface-two);
+  font-family: 'Mont-bold';
+  font-size: 12px;
+
+  .logo {
+    display: block;
+    align-self: center;
+    margin: 0 0 0 16px;
+
+    @include tablet {
+      margin: 0 32px 0 24px;
+    }
+
+    @include desktop {
+      margin: 0 48px 0 24px;
+    }
+
+    img {
+      width: 64px;
+
+      @include tablet {
+        width: 80px;
+      }
+
+      @include desktop {
+        width: 80px;
+      }
+    }
+  }
+
+  .button_group {
+    display: flex;
+    margin-left: auto;
+
+    .button {
+      width: 48px;
+      height: 48px;
+      border-left: 1px solid var(--surface-two);
+
+      @include tablet {
+        width: 64px;
+        height: 64px;
+      }
+
+      @include desktop {
+        width: 64px;
+        height: 64px;
+      }
+
+      &.burger {
+        display: none;
+
+        @include mobile {
+          display: block;
+        }
+      }
+
+      &.heart,
+      &.cart {
+        @include mobile {
+          display: none;
+        }
+      }
+    }
   }
 }

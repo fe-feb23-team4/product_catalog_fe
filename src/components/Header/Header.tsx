@@ -1,29 +1,46 @@
-/* eslint-disable max-len */
-import React from 'react';
-import styles from './Header.module.scss';
-import { Nav } from '../Nav/Nav';
-import logo from '../../assets/Logo.svg';
-import heartIcon from '../../assets/Heart-not-filled-icon.svg';
-import cartIcon from '../../assets/Cart-icon.svg';
+import { useState } from 'react';
+import cl from './Header.module.scss';
 
-const Header = () => {
+import { Nav } from '../Nav/Nav';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+
+import logo from '../../assets/Logo.svg';
+import heart from '../../assets/Heart.svg';
+import cart from '../../assets/Cart.svg';
+import burger from '../../assets/Burger.svg';
+
+export const Header = () => {
+  const [isBurgerActive, setIsBurgerActive] = useState(false);
+
   return (
-    <header className={styles.header}>
-      <button type="button">
-        <img src={logo} alt="Saint Coders Logo" />
-      </button>
+    <header className={cl.header}>
+      <a className={cl.logo} href="/">
+        <img src={logo} alt="logo_icon" />
+      </a>
 
       <Nav />
 
-      <button type="button">
-        <img src={heartIcon} alt="Heart Icon" />
-      </button>
+      <div className={cl.button_group}>
+        <a href="/favourite" className={`${cl.button} ${cl.heart}`}>
+          <img src={heart} alt="heart_icon" />
+        </a>
 
-      <button type="button" className={styles.header__button}>
-        <img src={cartIcon} alt="Cart icon" />
-      </button>
+        <a href="/cart" className={`${cl.button} ${cl.cart}`}>
+          <img src={cart} alt="cart_icon" />
+        </a>
+
+        <button
+          type="button"
+          className={`${cl.button} ${cl.burger}`}
+          onClick={() => setIsBurgerActive(!isBurgerActive)}
+        >
+          <img src={burger} alt="burger_icon" />
+        </button>
+      </div>
+      <BurgerMenu
+        isBurgerActive={isBurgerActive}
+        setIsBurgerActive={setIsBurgerActive}
+      />
     </header>
   );
 };
-
-export default Header;

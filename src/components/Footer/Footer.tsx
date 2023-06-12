@@ -10,9 +10,9 @@ export const Footer = () => {
   return (
     <footer className={cl.footer}>
       <div className={cl.footer__container}>
-        <div className={cl.footer__image}>
+        <a href="/home" className={cl.footer__image}>
           <img src={logo} alt="Footer_logo" />
-        </div>
+        </a>
         <div className={cl.footer__navlist}>
           <a href="/" className={cl.footer__navItem}>
             Github

@@ -2,7 +2,7 @@ import cl from './Footer.module.scss';
 import logo from './footer_logo.svg';
 import arrow from './arrow.svg';
 
-const Footer = () => {
+export const Footer = () => {
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -38,5 +38,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

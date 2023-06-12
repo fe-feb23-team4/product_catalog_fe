@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { FC } from 'react';
 import cn from 'classnames';
 import { HashRouter, NavLink } from 'react-router-dom';
@@ -55,8 +54,9 @@ export const BurgerMenu: FC<Props> = ({
             <li className={cl.li}>
               <NavLink
                 to="/"
-                className={({ isActive }) => cn(cl.a,
-                  { [cl.active]: isActive })}
+                className={({ isActive }) => cn(cl.a, {
+                  [cl.active]: isActive,
+                })}
               >
                 Home
               </NavLink>
@@ -65,8 +65,9 @@ export const BurgerMenu: FC<Props> = ({
             <li className={cl.li}>
               <NavLink
                 to="/phones"
-                className={({ isActive }) => cn(cl.a,
-                  { [cl.active]: isActive })}
+                className={({ isActive }) => cn(cl.a, {
+                  [cl.active]: isActive,
+                })}
               >
                 Phones
               </NavLink>
@@ -75,8 +76,9 @@ export const BurgerMenu: FC<Props> = ({
             <li className={cl.li}>
               <NavLink
                 to="/tablets"
-                className={({ isActive }) => cn(cl.a,
-                  { [cl.active]: isActive })}
+                className={({ isActive }) => cn(cl.a, {
+                  [cl.active]: isActive,
+                })}
               >
                 Tablets
               </NavLink>
@@ -85,8 +87,9 @@ export const BurgerMenu: FC<Props> = ({
             <li className={cl.li}>
               <NavLink
                 to="/accessories"
-                className={({ isActive }) => cn(cl.a,
-                  { [cl.active]: isActive })}
+                className={({ isActive }) => cn(cl.a, {
+                  [cl.active]: isActive,
+                })}
               >
                 Accessories
               </NavLink>

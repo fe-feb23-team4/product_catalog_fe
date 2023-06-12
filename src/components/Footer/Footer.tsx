@@ -3,6 +3,10 @@ import logo from './footer_logo.svg';
 import arrow from './arrow.svg';
 
 const Footer = () => {
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className={cl.footer}>
       <div className={cl.footer__container}>
@@ -25,6 +29,7 @@ const Footer = () => {
           <button
             type="button"
             className={cl.footer__button}
+            onClick={handleScrollToTop}
           >
             <img src={arrow} alt="Button_icon" />
           </button>

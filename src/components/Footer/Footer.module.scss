@@ -1,3 +1,5 @@
+@import '../../styles/utils/mixins.scss';
+
 .footer {
     height: 96px;
     background-color: #0F1121;
@@ -5,8 +7,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 50px;
+    padding-right: 50px;
     border-top: 1px solid #3B3E4A;
 
     &__container{
@@ -60,7 +62,13 @@
 
 }
 
-@media (max-width: 767px){
+@include tablet {
+    .footer__navlist{
+        gap: 13px;
+    }
+}
+
+@include mobile {
     .footer{
         height: 100%;
         &__container{

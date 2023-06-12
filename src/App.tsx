@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import { CardItem } from './components/CardItem';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Saint Coders Team</p>
       </header>
-      {/* <Header /> */}
+      <Header />
       <CardItem />
+      <Footer />
     </div>
   );
 }

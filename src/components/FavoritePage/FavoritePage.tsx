@@ -1,7 +1,9 @@
-export const FavoritesPage = () => {
+import cl from './FavoritePage.module.scss';
+
+export const FavoritePage = () => {
   return (
-    <div className="container">
-      <h1 className="title">Favorites</h1>
+    <div className={cl.container}>
+      <h1 className={cl.title}>Favorites</h1>
     </div>
   );
 };

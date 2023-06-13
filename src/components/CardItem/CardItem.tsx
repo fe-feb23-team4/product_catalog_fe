@@ -27,29 +27,48 @@ export const CardItem = () => {
     (action: string) => {
       if (action === 'addToCard') {
         setIsAddToCard((prevState) => !prevState);
-        localStorage.setItem('AddedToCard', isAddToCard ? '' : phone.phoneId);
+        const storedCardItems = localStorage.getItem('AddedToCard');
+        let phoneIds = storedCardItems ? JSON.parse(storedCardItems) : [];
+
+        if (phoneIds.includes(phone.id)) {
+          phoneIds = phoneIds.filter((id: string) => id !== phone.id);
+        } else {
+          phoneIds.push(phone.id);
+        }
+
+        localStorage.setItem('AddedToCard', JSON.stringify(phoneIds));
       } else if (action === 'addToFavorite') {
         setIsFavorite((prevState) => !prevState);
-        localStorage.setItem(
-          'AddedToFavorite',
-          isFavorite ? '' : phone.phoneId,
-        );
+        const storedFavoriteItems = localStorage.getItem('AddedToFavorite');
+
+        let phoneIds = storedFavoriteItems ? JSON
+          .parse(storedFavoriteItems) : [];
+
+        if (phoneIds.includes(phone.id)) {
+          phoneIds = phoneIds.filter((id: string) => id !== phone.id);
+        } else {
+          phoneIds.push(phone.id);
+        }
+
+        localStorage.setItem('AddedToFavorite', JSON.stringify(phoneIds));
       }
     },
     [isAddToCard, isFavorite],
   );
 
   useEffect(() => {
-    const addedToCard = localStorage.getItem('AddedToCard');
+    const storedCardItems = localStorage.getItem('AddedToCard');
+    const phoneIds = storedCardItems ? JSON.parse(storedCardItems) : [];
 
-    setIsAddToCard(addedToCard === phone.phoneId);
-  }, [phone.phoneId]);
+    setIsAddToCard(phoneIds.includes(phone.id));
+  }, [phone.id]);
 
   useEffect(() => {
-    const addedToFavorite = localStorage.getItem('AddedToFavorite');
+    const storedFavoriteItems = localStorage.getItem('AddedToFavorite');
+    const phoneIds = storedFavoriteItems ? JSON.parse(storedFavoriteItems) : [];
 
-    setIsFavorite(addedToFavorite === phone.phoneId);
-  }, [phone.phoneId]);
+    setIsFavorite(phoneIds.includes(phone.id));
+  }, [phone.id]);
 
   return (
     <div className={cl.cardItem}>

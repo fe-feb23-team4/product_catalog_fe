@@ -102,11 +102,9 @@ export const Cart = () => {
                 type="button"
                 className={`${cl.count_control_button} ${cl.decrement}`}
                 onClick={() => {
-                  let updatedCart = cart.map(
-                    (cartItem) => cartItem.id === item.id
-                      ? { ...cartItem, quantity: cartItem.quantity - 1 }
-                      : cartItem,
-                  );
+                  let updatedCart = cart.map((good) => good.id === item.id
+                    ? { ...good, quantity: good.quantity - 1 }
+                    : good);
 
                   if (item.quantity === 1) {
                     updatedCart = cart.filter(

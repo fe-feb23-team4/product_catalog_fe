@@ -35,9 +35,9 @@
     text-decoration: none;
     transition: 0.5s;
 
-      &:hover {
-        color: #66676b;
-      }
+    &:hover {
+      color: #66676b;
+    }
   }
 
   &__button__box {
@@ -66,10 +66,10 @@
     transition: 0.5s;
     cursor: pointer;
 
-      &:hover {
-        border-color:  #313237;
-        transform: scale(1.1);
-      }
+    &:hover {
+      border-color: #313237;
+      transform: scale(1.1);
+    }
   }
 }
 

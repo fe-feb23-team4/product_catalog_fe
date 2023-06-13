@@ -10,18 +10,14 @@ export const AddButtons = () => {
     <div className={cl.add_buttons}>
       <NavLink
         to="/favourite"
-        className={({ isActive }) => cn(
-          cl.button, { [cl.active]: isActive },
-        )}
+        className={({ isActive }) => cn(cl.button, { [cl.active]: isActive })}
       >
         <img src={heart} alt="heart_icon" />
       </NavLink>
 
       <NavLink
         to="/cart"
-        className={({ isActive }) => cn(
-          cl.button, { [cl.active]: isActive },
-        )}
+        className={({ isActive }) => cn(cl.button, { [cl.active]: isActive })}
       >
         <img src={cart} alt="cart_icon" />
       </NavLink>

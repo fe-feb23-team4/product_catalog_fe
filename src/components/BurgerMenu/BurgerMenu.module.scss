@@ -11,6 +11,22 @@
   transition: 0.3s;
   transform: translateY(-100%);
   opacity: 0;
+  .add_buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+
+    .a {
+      border: 1px solid var(--surface-two);
+      display: grid;
+      place-items: center;
+      width: 100%;
+    }
+  }
 
   &.active {
     transform: translateY(0);
@@ -41,38 +57,38 @@
     }
   }
 
+  .a {
+    color: var(--secondary);
+    font-family: 'Mont-bold';
+    font-size: 12px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      transition: 0.3s;
+    }
+
+    &.active {
+      color: var(--white);
+
+      &::after {
+        background-color: var(--white);
+      }
+    }
+  }
+
   .nav {
     .ul {
       .li {
         margin-top: 32px;
-
-        .a {
-          color: var(--secondary);
-          font-family: 'Mont-bold';
-          font-size: 12px;
-          padding-bottom: 8px;
-          text-decoration: none;
-          transition: 0.3s;
-          position: relative;
-
-          &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            transition: 0.3s;
-          }
-
-          &.active {
-            color: var(--white);
-
-            &::after {
-              background-color: var(--white);
-            }
-          }
-        }
       }
     }
   }

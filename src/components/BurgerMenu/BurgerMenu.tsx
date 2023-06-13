@@ -1,9 +1,13 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FC } from 'react';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import cl from './BurgerMenu.module.scss';
 import logo from '../../assets/Logo.svg';
 import close from '../../assets/Close.svg';
+import heart from '../../assets/Heart.svg';
+import cart from '../../assets/Cart.svg';
 
 interface Props {
   isBurgerActive: boolean;
@@ -18,18 +22,14 @@ export const BurgerMenu: FC<Props> = ({
     ? `${cl.burger_menu} ${cl.active}`
     : cl.burger_menu;
 
-  const handleClick = () => {
-    setIsBurgerActive(!isBurgerActive);
-  };
-
   return (
     <div
       className={menuClass}
-      role="button"
-      tabIndex={0}
-      onKeyDown={handleClick}
       onClick={(e) => {
-        if ((e.target as HTMLElement).tagName === 'A') {
+        if (
+          (e.target as HTMLElement).tagName === 'A'
+          || (e.target as HTMLElement).tagName === 'IMG'
+        ) {
           setIsBurgerActive(!isBurgerActive);
         }
       }}
@@ -38,7 +38,6 @@ export const BurgerMenu: FC<Props> = ({
         <NavLink
           className={cl.logo}
           to="/"
-          onClick={() => setIsBurgerActive(!isBurgerActive)}
         >
           <img src={logo} alt="logo_icon" />
         </NavLink>
@@ -46,7 +45,6 @@ export const BurgerMenu: FC<Props> = ({
         <button
           type="button"
           className={cl.close_button}
-          onClick={() => setIsBurgerActive(!isBurgerActive)}
         >
           <img src={close} alt="close_icon" />
         </button>
@@ -99,6 +97,26 @@ export const BurgerMenu: FC<Props> = ({
           </li>
         </ul>
       </nav>
+
+      <div className={cl.add_buttons}>
+        <NavLink
+          to="/favourite"
+          className={({ isActive }) => cn(cl.a, {
+            [cl.active]: isActive,
+          })}
+        >
+          <img src={heart} alt="favourite" />
+        </NavLink>
+
+        <NavLink
+          to="/cart"
+          className={({ isActive }) => cn(cl.a, {
+            [cl.active]: isActive,
+          })}
+        >
+          <img src={cart} alt="cart" />
+        </NavLink>
+      </div>
     </div>
   );
 };

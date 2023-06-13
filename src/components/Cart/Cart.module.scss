@@ -1,9 +1,21 @@
 @import '../../styles/variables/variables.scss';
 @import '../../styles/utils/mixins.scss';
 
+<<<<<<< HEAD
 .cart {
+=======
+.cart_container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  padding: 16px;
+>>>>>>> 79077e6 (recommit)
   background-color: var(--black);
 
+<<<<<<< HEAD
   &__page {
     width: 100%;
     padding: 32px 0;
@@ -14,10 +26,17 @@
     @include desktop {
       grid-template-columns: 2fr 1fr;
     }
+=======
+  .cart_title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 32px;
+>>>>>>> 79077e6 (recommit)
   }
 
   &__container {
     width: 100%;
+<<<<<<< HEAD
     max-width: 1200px;
     display: flex;
     flex-direction: column;
@@ -118,10 +137,114 @@
   }
 
   &__total {
+=======
+
+    .cart_item {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 16px;
+
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+
+      .cart_item_count_control {
+        display: grid;
+        grid-template-columns: 32px 32px 32px auto;
+
+        .count_control_button {
+          background-color: transparent;
+          width: 32px;
+          height: 32px;
+          font-size: 14px;
+          display: grid;
+          place-items: center;
+          text-align: center;
+          color: var(--white);
+          cursor: pointer;
+
+          &.decrement {
+            border: 1px solid var(--surface-two);
+            color: var(--surface-two);
+          }
+
+          &.increment {
+            background-color: var(--surface-two);
+          }
+
+          &.count {
+            border: 1px solid var(--secondary);
+          }
+        }
+
+        .count_control_total_price {
+          margin-left: auto;
+          font-size: 22px;
+          font-weight: 800;
+          line-height: 140%;
+          text-align: right;
+        }
+      }
+
+      .cart_item_info {
+        border: 2px solid grey;
+        display: grid;
+        gap: 24px;
+        padding: 24px;
+        justify-content: start;
+        align-items: center;
+        grid-template-columns: 10px 66px auto;
+
+        .cart_item_info_image {
+          width: 66px;
+          padding: 7px;
+        }
+
+        .cart_item_info_details {
+          font-size: 14px;
+          text-align: left;
+        }
+      }
+    }
+
+    .cart_item_count_control_button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .cart_item_count_control_count {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--secondary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart_item + .cart_item {
+      margin-top: 16px;
+    }
+
+    .cart_item:last-child {
+      margin-bottom: 32px;
+    }
+  }
+
+  .cart_total {
+>>>>>>> 79077e6 (recommit)
     border: 1px solid var(--secondary);
     width: 100%;
     padding: 24px;
 
+<<<<<<< HEAD
     &_title {
       font-size: 32px;
     }
@@ -143,11 +266,41 @@
       color: var(--white);
       width: 100%;
       height: 48px;
+=======
+    .cart_total_title {
+      font-size: 32px;
+    }
+
+    .cart_total_count {
+      .cart_total_count_text {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+
+      .cart_total_count_line {
+        width: 100%;
+        height: 1px;
+        margin: 16px 0;
+        background-color: var(--secondary);
+      }
+
+      .cart_total_count_button {
+        background-color: var(--accent);
+        color: var(--white);
+        width: 100%;
+        height: 48px;
+        padding: 0 8px;
+        cursor: pointer;
+      }
+>>>>>>> 79077e6 (recommit)
     }
   }
 }
 
 .go_back_button {
+<<<<<<< HEAD
   display: flex;
   color: var(--white);
   padding: 0;
@@ -158,6 +311,16 @@
   }
   @include desktop {
     margin-bottom: 16px;
+=======
+  cursor: pointer;
+  display: flex;
+  color: var(--white);
+  padding: 0;
+
+  img {
+    color: var(--white);
+    height: 15px;
+>>>>>>> 79077e6 (recommit)
   }
 
   &__img {

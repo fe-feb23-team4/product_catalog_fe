@@ -31,15 +31,6 @@
         position: relative;
         transition: 0.3s;
 
-        &.active {
-          color: var(--white);
-
-          &::after {
-            background-color: var(--white);
-            transform: translateY(0);
-          }
-        }
-
         &::after {
           content: '';
           position: absolute;
@@ -53,6 +44,15 @@
 
         &:hover {
           color: var(--white);
+        }
+
+        &.active {
+          color: var(--white);
+
+          &::after {
+            background-color: var(--white);
+            transform: translateY(0);
+          }
         }
       }
     }

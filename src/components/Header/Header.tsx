@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { HashRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cl from './Header.module.scss';
 
 import { Nav } from '../Nav/Nav';
@@ -14,28 +14,26 @@ export const Header = () => {
 
   return (
     <header className={cl.header}>
-      <HashRouter>
-        <Link className={cl.logo} to="/">
-          <img src={logo} alt="logo_icon" />
-        </Link>
+      <Link className={cl.logo} to="/">
+        <img src={logo} alt="logo_icon" />
+      </Link>
 
-        <Nav />
+      <Nav />
 
-        <AddButtons />
+      <AddButtons />
 
-        <button
-          type="button"
-          className={cl.burger}
-          onClick={() => setIsBurgerActive(!isBurgerActive)}
-        >
-          <img src={burger} alt="burger_icon" />
-        </button>
+      <button
+        type="button"
+        className={cl.burger}
+        onClick={() => setIsBurgerActive(!isBurgerActive)}
+      >
+        <img src={burger} alt="burger_icon" />
+      </button>
 
-        <BurgerMenu
-          isBurgerActive={isBurgerActive}
-          setIsBurgerActive={setIsBurgerActive}
-        />
-      </HashRouter>
+      <BurgerMenu
+        isBurgerActive={isBurgerActive}
+        setIsBurgerActive={setIsBurgerActive}
+      />
     </header>
   );
 };

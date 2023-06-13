@@ -35,17 +35,11 @@ export const BurgerMenu: FC<Props> = ({
       }}
     >
       <header className={cl.header}>
-        <NavLink
-          className={cl.logo}
-          to="/"
-        >
+        <NavLink className={cl.logo} to="/">
           <img src={logo} alt="logo_icon" />
         </NavLink>
 
-        <button
-          type="button"
-          className={cl.close_button}
-        >
+        <button type="button" className={cl.close_button}>
           <img src={close} alt="close_icon" />
         </button>
       </header>

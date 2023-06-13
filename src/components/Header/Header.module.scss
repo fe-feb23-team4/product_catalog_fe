@@ -8,6 +8,7 @@
   border-bottom: 1px solid var(--surface-two);
   font-family: 'Mont-bold';
   font-size: 12px;
+  position: relative;
 
   .logo {
     display: block;
@@ -35,43 +36,16 @@
     }
   }
 
-  .button_group {
-    display: flex;
-    margin-left: auto;
+  .burger {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-left: 1px solid var(--surface-two);
 
-    .button {
+    @include mobile {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: auto;
-      width: 48px;
-      height: 48px;
-      border-left: 1px solid var(--surface-two);
-
-      @include tablet {
-        width: 64px;
-        height: 64px;
-      }
-
-      @include desktop {
-        width: 64px;
-        height: 64px;
-      }
-
-      &.burger {
-        display: none;
-
-        @include mobile {
-          display: block;
-        }
-      }
-
-      &.heart,
-      &.cart {
-        @include mobile {
-          display: none;
-        }
-      }
     }
   }
 }

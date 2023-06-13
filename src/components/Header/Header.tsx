@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import { HashRouter, Link } from 'react-router-dom';
 import cl from './Header.module.scss';
 
 import { Nav } from '../Nav/Nav';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { AddButtons } from '../Nav/AddButtons/AddButtons';
 
 import logo from '../../assets/Logo.svg';
-import heart from '../../assets/Heart.svg';
-import cart from '../../assets/Cart.svg';
 import burger from '../../assets/Burger.svg';
 
 export const Header = () => {
@@ -14,33 +14,28 @@ export const Header = () => {
 
   return (
     <header className={cl.header}>
-      <a className={cl.logo} href="/">
-        <img src={logo} alt="logo_icon" />
-      </a>
+      <HashRouter>
+        <Link className={cl.logo} to="/">
+          <img src={logo} alt="logo_icon" />
+        </Link>
 
-      <Nav />
+        <Nav />
 
-      <div className={cl.button_group}>
-        <a href="/favourite" className={`${cl.button} ${cl.heart}`}>
-          <img src={heart} alt="heart_icon" />
-        </a>
-
-        <a href="/cart" className={`${cl.button} ${cl.cart}`}>
-          <img src={cart} alt="cart_icon" />
-        </a>
+        <AddButtons />
 
         <button
           type="button"
-          className={`${cl.button} ${cl.burger}`}
+          className={cl.burger}
           onClick={() => setIsBurgerActive(!isBurgerActive)}
         >
           <img src={burger} alt="burger_icon" />
         </button>
-      </div>
-      <BurgerMenu
-        isBurgerActive={isBurgerActive}
-        setIsBurgerActive={setIsBurgerActive}
-      />
+
+        <BurgerMenu
+          isBurgerActive={isBurgerActive}
+          setIsBurgerActive={setIsBurgerActive}
+        />
+      </HashRouter>
     </header>
   );
 };

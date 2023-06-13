@@ -16,6 +16,3 @@
   }
 }
 
-@mixin gridQuerry ($cols) {
-  grid-template-columns: repeat($cols, 1fr);
-}

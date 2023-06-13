@@ -23,21 +23,21 @@ export const CardItem = () => {
   const [isAddToCard, setIsAddToCard] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleAction = useCallback((action: string) => {
-    if (action === 'addToCard') {
-      setIsAddToCard((prevState) => !prevState);
-      localStorage.setItem(
-        'AddedToCard',
-        isAddToCard ? '' : phone.phoneId,
-      );
-    } else if (action === 'addToFavorite') {
-      setIsFavorite((prevState) => !prevState);
-      localStorage.setItem(
-        'AddedToFavorite',
-        isFavorite ? '' : phone.phoneId,
-      );
-    }
-  }, [isAddToCard, isFavorite]);
+  const handleAction = useCallback(
+    (action: string) => {
+      if (action === 'addToCard') {
+        setIsAddToCard((prevState) => !prevState);
+        localStorage.setItem('AddedToCard', isAddToCard ? '' : phone.phoneId);
+      } else if (action === 'addToFavorite') {
+        setIsFavorite((prevState) => !prevState);
+        localStorage.setItem(
+          'AddedToFavorite',
+          isFavorite ? '' : phone.phoneId,
+        );
+      }
+    },
+    [isAddToCard, isFavorite],
+  );
 
   useEffect(() => {
     const addedToCard = localStorage.getItem('AddedToCard');

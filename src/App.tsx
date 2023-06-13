@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { Cart } from './components/Cart/Cart';
 import { CardCatalog } from './components/CardCatalog/CardCatalog';
+import { FavoritePage } from './components/FavoritePage/FavoritePage';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path="/phones" element={<h1>Phones</h1>} />
           <Route path="/tablets" element={<h1>Tablets</h1>} />
           <Route path="/accessories" element={<h1>Accesories</h1>} />
-          <Route path="/favourite" element={<h1>Favourite</h1>} />
+          <Route path="/favourite" element={<FavoritePage />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </HashRouter>

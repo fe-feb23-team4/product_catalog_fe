@@ -1,8 +1,31 @@
 @import 'styles/fonts/fonts';
 @import 'styles/variables/variables';
-
+@import 'styles/utils/mixins';
 @import 'styles/reset';
 
 * {
   box-sizing: border-box;
+}
+
+p {
+  font-family: 'Mont-Semibold', serif;
+}
+
+.container {
+  margin: 0 auto;
+  background-color: var(--black);
+
+  @include desktop {
+    max-width: 1200px;
+    padding: 0 32px 0 32px;
+  }
+
+  @include tablet {
+    min-width: 640px;
+    padding: 0 24px 0 24px;
+  }
+
+  @include mobile {
+    padding: 0 16px 0 16px;
+  }
 }

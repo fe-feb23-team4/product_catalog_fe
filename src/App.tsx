@@ -4,9 +4,12 @@ import { CardItem } from './components/CardItem';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { Cart } from './components/Cart/Cart';
-import { CardCatalog } from './components/CardCatalog/CardCatalog';
 import { FavoritePage } from './components/FavoritePage/FavoritePage';
 import { ItemCard } from './components/ItemCard';
+import { PhonesPage } from './components/PhonesPage';
+import { TabletsPage } from './components/TabletsPage';
+import { AccessoriesPage } from './components/AccessoriesPage';
+import { HomePage } from './components/HomePage';
 
 function App() {
   return (
@@ -14,17 +17,16 @@ function App() {
       <HashRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
-          <Route path="/phones" element={<h1>Phones</h1>} />
-          <Route path="/tablets" element={<h1>Tablets</h1>} />
-          <Route path="/accessories" element={<h1>Accesories</h1>} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/phones" element={<PhonesPage />} />
+          <Route path="/tablets" element={<TabletsPage />} />
+          <Route path="/accessories" element={<AccessoriesPage />} />
           <Route path="/favourite" element={<FavoritePage />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </HashRouter>
       <ItemCard />
       <CardItem />
-      <CardCatalog />
       <Footer />
     </div>
   );

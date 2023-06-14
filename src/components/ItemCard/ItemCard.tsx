@@ -21,14 +21,15 @@ export const ItemCard = () => {
   return (
     <div className={cl.itemCard}>
       <div className={cl.grid}>
-        <div className={cn(cl.grid__item,
-          cl.grid__item__mobile_1_4,
-          cl.grid__item__tablet_1_12,
-          cl.grid__item__desktop_1_24)}
+        <div
+          className={cn(
+            cl.grid__item,
+            cl.grid__item__mobile_1_4,
+            cl.grid__item__tablet_1_12,
+            cl.grid__item__desktop_1_24,
+          )}
         >
-          <h1 className={cl.itemCard__title}>
-            {phone.name}
-          </h1>
+          <h1 className={cl.itemCard__title}>{phone.name}</h1>
         </div>
       </div>
     </div>

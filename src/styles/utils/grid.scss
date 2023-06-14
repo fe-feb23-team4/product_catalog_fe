@@ -13,13 +13,13 @@
     column-gap: 16px;
   }
 
-  &--desktop {
+  &__desktop {
     @include desktop {
       display: grid;
     }
   }
 
-  &--tablet {
+  &__tablet {
     display: grid;
 
     @include tablet {
@@ -27,7 +27,7 @@
     }
   }
 
-  &--mobile {
+  &__mobile {
     @include mobile {
       display: grid;
     }

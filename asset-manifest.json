@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog_fe/static/css/main.7fb2a8ec.css",
-    "main.js": "/product_catalog_fe/static/js/main.c15f3e51.js",
+    "main.css": "/product_catalog_fe/static/css/main.c9abeaa8.css",
+    "main.js": "/product_catalog_fe/static/js/main.8764d229.js",
     "static/js/787.04d647c9.chunk.js": "/product_catalog_fe/static/js/787.04d647c9.chunk.js",
     "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.82f82c9ade36c8bb9559f23b90157ac2.svg",
     "static/media/footer_logo.svg": "/product_catalog_fe/static/media/footer_logo.fec73ac374991822478b2557ab1773cb.svg",
@@ -14,12 +14,13 @@
     "static/media/Close.svg": "/product_catalog_fe/static/media/Close.c89cd55fcda471b596c2997cc48e5674.svg",
     "static/media/Burger.svg": "/product_catalog_fe/static/media/Burger.ccd1a9542b5bc584f2a1c0456d816ec9.svg",
     "static/media/arrow.svg": "/product_catalog_fe/static/media/arrow.e4fff257d28bda2ded41c2f11c49c83f.svg",
-    "main.7fb2a8ec.css.map": "/product_catalog_fe/static/css/main.7fb2a8ec.css.map",
-    "main.c15f3e51.js.map": "/product_catalog_fe/static/js/main.c15f3e51.js.map",
+    "static/media/ArrowLeft.svg": "/product_catalog_fe/static/media/ArrowLeft.42403ae1a93c700f0b105e46d751319d.svg",
+    "main.c9abeaa8.css.map": "/product_catalog_fe/static/css/main.c9abeaa8.css.map",
+    "main.8764d229.js.map": "/product_catalog_fe/static/js/main.8764d229.js.map",
     "787.04d647c9.chunk.js.map": "/product_catalog_fe/static/js/787.04d647c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fb2a8ec.css",
-    "static/js/main.c15f3e51.js"
+    "static/css/main.c9abeaa8.css",
+    "static/js/main.8764d229.js"
   ]
 }

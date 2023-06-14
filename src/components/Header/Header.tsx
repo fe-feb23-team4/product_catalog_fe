@@ -1,29 +1,39 @@
-/* eslint-disable max-len */
-import React from 'react';
-import styles from './Header.module.scss';
-import { Nav } from '../Nav/Nav';
-import logo from '../../assets/Logo.svg';
-import heartIcon from '../../assets/Heart-not-filled-icon.svg';
-import cartIcon from '../../assets/Cart-icon.svg';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import cl from './Header.module.scss';
 
-const Header = () => {
+import { Nav } from '../Nav/Nav';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { AddButtons } from '../Nav/AddButtons/AddButtons';
+
+import logo from '../../assets/Logo.svg';
+import burger from '../../assets/Burger.svg';
+
+export const Header = () => {
+  const [isBurgerActive, setIsBurgerActive] = useState(false);
+
   return (
-    <header className={styles.header}>
-      <button type="button">
-        <img src={logo} alt="Saint Coders Logo" />
-      </button>
+    <header className={cl.header}>
+      <Link className={cl.logo} to="/">
+        <img src={logo} alt="logo_icon" />
+      </Link>
 
       <Nav />
 
-      <button type="button">
-        <img src={heartIcon} alt="Heart Icon" />
+      <AddButtons />
+
+      <button
+        type="button"
+        className={cl.burger}
+        onClick={() => setIsBurgerActive(!isBurgerActive)}
+      >
+        <img src={burger} alt="burger_icon" />
       </button>
 
-      <button type="button" className={styles.header__button}>
-        <img src={cartIcon} alt="Cart icon" />
-      </button>
+      <BurgerMenu
+        isBurgerActive={isBurgerActive}
+        setIsBurgerActive={setIsBurgerActive}
+      />
     </header>
   );
 };
-
-export default Header;

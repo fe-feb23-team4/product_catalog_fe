@@ -1,0 +1,10 @@
+@import '../../styles/utils/mixins.scss';
+@import '../../styles/utils/grid.scss';
+
+.product_catalog {
+  margin: 0 auto;
+  max-width: 1200px;
+  align-content: start;
+  justify-items: center;
+  gap: 16px;
+}

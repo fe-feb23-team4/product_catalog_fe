@@ -1,20 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { CardItem } from './components/CardItem';
-import { Loader } from './components/Loader';
-// import Header from './components/Header/Header';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
+import { Cart } from './components/Cart/Cart';
+import { CardCatalog } from './components/CardCatalog/CardCatalog';
+import { FavoritePage } from './components/FavoritePage/FavoritePage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Saint Coders Team</p>
-        <Loader />
-      </header>
-      {/* <Header /> */}
+      <HashRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/phones" element={<h1>Phones</h1>} />
+          <Route path="/tablets" element={<h1>Tablets</h1>} />
+          <Route path="/accessories" element={<h1>Accesories</h1>} />
+          <Route path="/favourite" element={<FavoritePage />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </HashRouter>
       <CardItem />
+      <CardCatalog />
+      <Footer />
     </div>
   );
 }

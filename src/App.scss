@@ -12,16 +12,16 @@ p {
 }
 
 .container {
-    margin: 0 auto;
-    background-color: var(--black);
+  margin: 0 auto;
+  background-color: var(--black);
 
   @include desktop {
-    max-width: 1430px;
-    padding: 0 15px 0 15px;
+    max-width: 1200px;
+    padding: 0 32px 0 32px;
   }
 
   @include tablet {
-    min-width: 648px;
+    min-width: 640px;
     padding: 0 24px 0 24px;
   }
 

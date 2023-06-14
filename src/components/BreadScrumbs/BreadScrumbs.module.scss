@@ -1,0 +1,17 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 12px;
+    line-height: 12px;
+  
+    &__link {
+      margin-bottom: -2px;
+      color: aliceblue;
+    }
+  
+    &__text {
+      margin-bottom: -2px;
+      color: #75767F;
+    }
+  }

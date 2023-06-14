@@ -1,0 +1,20 @@
+@import '../../styles/utils/mixins.scss';
+@import '../../styles/utils/grid.scss';
+
+.itemCard {
+  padding: 0 16px;
+
+  &__title {
+    font-family: 'Mont-Bold', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+
+    @include tablet {
+      font-size: 32px;
+      line-height: 128%;
+      letter-spacing: -0.01em;
+    }
+  }
+}

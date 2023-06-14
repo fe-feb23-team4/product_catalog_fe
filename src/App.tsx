@@ -1,11 +1,12 @@
 import './App.scss';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { CardItem } from './components/CardItem';
+// import { CardItem } from './components/CardItem';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { Cart } from './components/Cart/Cart';
-import { CardCatalog } from './components/CardCatalog/CardCatalog';
+// import { CardCatalog } from './components/CardCatalog/CardCatalog';
 import { FavoritePage } from './components/FavoritePage/FavoritePage';
+import { ItemCard } from './components/ItemCard';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </HashRouter>
-      <CardItem />
-      <CardCatalog />
+      <ItemCard />
+      {/* <CardItem />
+      <CardCatalog /> */}
       <Footer />
     </div>
   );

@@ -41,8 +41,9 @@ export const CardItem = () => {
         setIsFavorite((prevState) => !prevState);
         const storedFavoriteItems = localStorage.getItem('AddedToFavorite');
 
-        let phoneIds = storedFavoriteItems ? JSON
-          .parse(storedFavoriteItems) : [];
+        let phoneIds = storedFavoriteItems
+          ? JSON.parse(storedFavoriteItems)
+          : [];
 
         if (phoneIds.includes(phone.id)) {
           phoneIds = phoneIds.filter((id: string) => id !== phone.id);

@@ -26,14 +26,10 @@ export const Breadscrumbs: FC<Props> = ({ category, currentPage }) => {
 
           <Arrow />
 
-          <span className={cl.breadcrumbs__text}>
-            {currentPage}
-          </span>
+          <span className={cl.breadcrumbs__text}>{currentPage}</span>
         </>
       ) : (
-        <span className={cl.breadcrumbs__text}>
-          {category}
-        </span>
+        <span className={cl.breadcrumbs__text}>{category}</span>
       )}
     </div>
   );

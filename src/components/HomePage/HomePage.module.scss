@@ -1,9 +1,6 @@
-.container {
-  height: 100vh;
-  max-width: 100%;
-  margin: 0 auto;
-  background-color: #0f1121;
-}
+@import '../../styles/utils/mixins.scss';
+@import '../../styles/utils/grid.scss';
+@import 'src/App';
 
 .title {
   text-align: start;

@@ -1,8 +1,20 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable no-confusing-arrow */
 import { useState } from 'react';
 import cl from './Cart.module.scss';
 import arrowLeft from '../../assets/ArrowLeft.svg';
 import close from '../../assets/Close.svg';
+
+interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  img: string;
+  description: string;
+  color: string;
+  memory: string;
+  quantity: number;
+}
 
 const template = [
   {
@@ -65,110 +77,139 @@ export const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [cart, setCart] = useState(template);
 
+  function removeFromCart(item: CartItem) {
+    const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
+
+    setCart(updatedCart);
+    setTotalPrice(totalPrice - item.price * item.quantity);
+  }
+
   return (
-    <div className={cl.cart_container}>
-      <button
-        className={cl.go_back_button}
-        type="button"
-        onClick={() => window.history.back()}
-      >
-        <img src={arrowLeft} alt="arrow_left" className={cl.arrow_left} />
-        <span className={cl.span}>Back</span>
-      </button>
+    <div className={cl.cart}>
+      <div className={cl.cart__container}>
+        <button
+          className={cl.go_back_button}
+          type="button"
+          onClick={() => window.history.back()}
+        >
+          <img
+            src={arrowLeft}
+            alt="arrow_left"
+            className={cl.go_back_button__img}
+          />
+          <span className={cl.go_back_button__span}>Back</span>
+        </button>
 
-      <h2 className={cl.cart_title}>Cart</h2>
+        <h2 className={cl.cart__title}>Cart</h2>
 
-      <ul className={cl.cart_list}>
-        {cart.map((item) => (
-          <li className={cl.cart_item} key={item.id}>
-            <div className={cl.cart_item_info}>
-              <img src={close} alt="close" className={cl.close} />
-              <img
-                src={item.img}
-                alt={item.name}
-                className={cl.cart_item_info_image}
-              />
-              <div className={cl.cart_item_info_details}>
-                <h3 className={cl.cart_item_name}>{item.name}</h3>
-                <p className={cl.cart_item_description}>{item.description}</p>
-                <p className={cl.cart_item_price}>
-                  Price:
-                  {item.price}
-                </p>
-              </div>
-            </div>
-            <div className={cl.cart_item_count_control}>
-              <button
-                type="button"
-                className={`${cl.count_control_button} ${cl.decrement}`}
-                onClick={() => {
-                  let updatedCart = cart.map((good) => good.id === item.id
-                    ? { ...good, quantity: good.quantity - 1 }
-                    : good);
+        {cart.length === 0 ? (
+          <div className={cl.cart__empty}>
+            <h1 className={cl.cart__empty_title}>Cart is empty</h1>
+            <p className={cl.cart__empty_text}>
+              You have not added anything to your cart yet
+            </p>
+          </div>
+        ) : (
+          <div className={cl.cart__page}>
+            <ul className={cl.cart__list}>
+              {cart.map((item) => (
+                <li className={cl.cart__item} key={item.id}>
+                  <div className={cl['cart__item_info']}>
+                    <button
+                      type="button"
+                      className={cl.remove_button}
+                      onClick={() => removeFromCart(item)}
+                    >
+                      <img src={close} alt="remove" className={cl.close} />
+                    </button>
 
-                  if (item.quantity === 1) {
-                    updatedCart = cart.filter(
-                      (cartItem) => cartItem.id !== item.id,
-                    );
-                  }
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className={cl['cart__item_info-image']}
+                    />
 
-                  setCart(updatedCart);
-                  setTotalPrice(totalPrice - item.price);
-                }}
-              >
-                -
-              </button>
+                    <h3 className={cl['cart__item_info-name']}>{item.name}</h3>
+                  </div>
 
-              <input
-                className={`${cl.count_control_button} count`}
-                value={item.quantity}
-                type="text"
-                readOnly
-              />
+                  <div className={cl.count_control}>
+                    <button
+                      type="button"
+                      className={`${cl.count_control__button} ${cl.decrement}`}
+                      onClick={() => {
+                        // eslint-disable-next-line max-len
+                        const updatedCart = cart.map((good) => good.id === item.id
+                          ? { ...good, quantity: good.quantity - 1 }
+                          : good);
 
-              <button
-                type="button"
-                className={`${cl.count_control_button} ${cl.increment}`}
-                onClick={() => {
-                  const updatedCart = cart.map((good) => good.id === item.id
-                    ? { ...good, quantity: good.quantity + 1 }
-                    : good);
+                        if (item.quantity === 1) {
+                          removeFromCart(item);
 
-                  setCart(updatedCart);
-                  setTotalPrice(totalPrice + item.price);
-                }}
-              >
-                +
-              </button>
-              <div className={cl.count_control_total_price}>
+                          return;
+                        }
+
+                        setCart(updatedCart);
+                        setTotalPrice(totalPrice - item.price);
+                      }}
+                    >
+                      -
+                    </button>
+
+                    <input
+                      className={`${cl.count_control__quantity} count`}
+                      value={item.quantity}
+                      type="text"
+                      readOnly
+                    />
+
+                    <button
+                      type="button"
+                      className={`${cl.count_control__button} ${cl.increment}`}
+                      onClick={() => {
+                        // eslint-disable-next-line max-len
+                        const updatedCart = cart.map((good) => good.id === item.id
+                          ? { ...good, quantity: good.quantity + 1 }
+                          : good);
+
+                        setCart(updatedCart);
+                        setTotalPrice(totalPrice + item.price);
+                      }}
+                    >
+                      +
+                    </button>
+
+                    <div className={cl.count_control__total_price}>
+                      $
+                      {item.price * item.quantity}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className={cl.cart__total}>
+              <h1 className={cl.cart__total_title}>
                 $
-                {item.price * item.quantity}
-              </div>
+                {cart.reduce(
+                  (sum, item) => sum + item.price * item.quantity,
+                  0,
+                )}
+              </h1>
+
+              <p className={cl.cart__total_quantity}>
+                Total for
+                {' '}
+                {cart.reduce((total, item) => total + item.quantity, 0)}
+                {' '}
+                items
+              </p>
+              <div className={cl.cart__total_line}> </div>
+              <button type="button" className={cl.cart__total_button}>
+                Checkout
+              </button>
             </div>
-          </li>
-        ))}
-      </ul>
-
-      <div className={cl.cart_total}>
-        <h1 className={cl.cart_total_title}>
-          $
-          {cart.reduce((total, item) => total + item.price * item.quantity, 0)}
-        </h1>
-
-        <div className={cl.cart_total_count}>
-          <p className={cl.cart_total_count_text}>
-            Total for
-            {' '}
-            {cart.reduce((total, item) => total + item.quantity, 0)}
-            {' '}
-            items
-          </p>
-          {/* eslint-disable-next-line react/self-closing-comp */}
-          <div className={cl.cart_total_count_line}></div>
-          <button type="button" className={cl.cart_total_count_button}>
-            Checkout
-          </button>
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

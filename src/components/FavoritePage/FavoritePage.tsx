@@ -25,9 +25,6 @@ export const FavoritePage = () => {
     };
   }, [favoriteItems]);
 
-  // eslint-disable-next-line no-console
-  // console.log(favoriteItems);
-
   return (
     <div className={cl.container}>
       <Breadscrumbs category={category} />

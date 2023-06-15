@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/jsx-no-bind */
 import { MouseEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { getPhones } from '../../api/phones';
 import cl from './PhonesPage.module.scss';
 
 export const PhonesPage = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [phones, setPhones] = useState<Phone[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isActivated, setIsActivated] = useState('');
@@ -108,7 +110,7 @@ export const PhonesPage = () => {
 
       <div className={cl.pagination_wrapper}>
         <Pagination
-          total={71}
+          total={phones.length}
           currentParams={searchParams}
           onPageChange={onPageChange}
           onArrowPageChange={updateSearchParams}

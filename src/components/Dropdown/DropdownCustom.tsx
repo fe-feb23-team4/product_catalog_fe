@@ -42,7 +42,10 @@ export const DropdownCustom: FC<Props> = ({
           })}
         >
           {options.map((option) => (
-            <li className={cl.list_item}>
+            <li
+              className={cl.list_item}
+              key={option}
+            >
               <a
                 className={cl.link}
                 href="/"

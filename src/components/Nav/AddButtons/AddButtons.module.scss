@@ -39,6 +39,9 @@
 }
 
 .count__button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   width: 14px;
   height: 14px;

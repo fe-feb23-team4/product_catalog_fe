@@ -1,0 +1,15 @@
+.arrow {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-two);
+  color: var(--white);
+  border: 1px solid var(--surface-two);
+
+  &[disabled] {
+    background-color: transparent;
+  }
+}
+

@@ -1,0 +1,82 @@
+@import '../../styles/variables/variables.scss';
+
+.container {
+  display: inline-block;
+  margin: 0 24px 0;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.title {
+  font-family: 'Mont-Semibold';
+  font-size: 12px;
+  line-height: 120%;
+  color: var(--surface-two);
+}
+
+.list {
+  position: absolute;
+  width: max-content;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 4px 0;
+  border: 1px var(--surface-two) solid;
+  background-color: var(--black);
+  transition: all 0.3s;
+}
+
+.list_item {
+  display: inline-block;
+}
+
+.link, .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 32px;
+  width: 172px;
+  padding-left: 12px;
+
+  font-family: 'Mont-Regular';
+  text-align: left;
+  line-height: 21px;
+  font-size: 14px;
+  color: var(--secondary);
+  text-decoration: none;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: var(--surface-two);
+    color: var(--white);
+  }
+}
+
+.button {
+  position: relative;
+
+  height: 40px;
+  width: 174px;
+  margin-bottom: 4px;
+
+  color: var(--white);
+  border: 1px transparent solid;
+  background-color: var(--surface-two);
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: var(--icons);
+  }
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
+.hidden {
+  transform: translateX(-100%);
+  z-index: -1;
+  transition: all 0.3s;
+}

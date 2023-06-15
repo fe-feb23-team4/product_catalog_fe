@@ -36,8 +36,10 @@ export const Pagination: FC<Props> = ({
   return (
     <>
       <ul className={cl.list}>
-        <li className={cn(cl.list_item,
-          { [cl.list_item__disabled]: isFirstPage })}
+        <li
+          className={cn(cl.list_item, {
+            [cl.list_item__disabled]: isFirstPage,
+          })}
         >
           <a
             className={cl.link}
@@ -53,17 +55,14 @@ export const Pagination: FC<Props> = ({
             }}
           >
             <img
-              src={isFirstPage
-                ? leftArrow
-                : leftArrowLight}
+              src={isFirstPage ? leftArrow : leftArrowLight}
               alt="pagination-left-arrow"
             />
           </a>
         </li>
-        {pageCounts.map(page => (
+        {pageCounts.map((page) => (
           <li
-            className={cn(cl.list_item,
-              { [cl.active]: page === +currentPage })}
+            className={cn(cl.list_item, { [cl.active]: page === +currentPage })}
             key={page}
           >
             <a
@@ -77,8 +76,8 @@ export const Pagination: FC<Props> = ({
             </a>
           </li>
         ))}
-        <li className={cn(cl.list_item,
-          { [cl.list_item__disabled]: isLastPage })}
+        <li
+          className={cn(cl.list_item, { [cl.list_item__disabled]: isLastPage })}
         >
           <a
             className={cl.link}
@@ -94,9 +93,7 @@ export const Pagination: FC<Props> = ({
             }}
           >
             <img
-              src={isLastPage
-                ? rightArrow
-                : rightArrowLight}
+              src={isLastPage ? rightArrow : rightArrowLight}
               alt="pagination-right-arrow"
             />
           </a>

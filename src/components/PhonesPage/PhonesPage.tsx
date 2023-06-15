@@ -60,7 +60,6 @@ export const PhonesPage = () => {
 
   return (
     <div className={cl.container}>
-
       <div className={cl.breadscrumbs_wrapper}>
         <Breadscrumbs category="Phones" />
       </div>

@@ -22,3 +22,27 @@
     margin-top: 24px;
   }
 }
+
+.home {
+  padding-bottom: 80px;
+
+  @include tablet {
+    padding-bottom: 64px;
+  }
+
+  @include mobile {
+    padding-bottom: 64px;
+  }
+}
+
+.swiper {
+  margin-top: 56px;
+
+  @include tablet {
+    margin-top: 32px;
+  }
+
+  @include mobile {
+    margin-top: 24px;
+  }
+}

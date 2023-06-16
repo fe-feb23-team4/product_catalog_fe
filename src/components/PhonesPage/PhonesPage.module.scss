@@ -1,9 +1,8 @@
 @import '../../styles/variables/variables.scss';
 
 .container {
-  height: 100vh;
-  max-width: 100%;
-  margin: 0 auto;
+  max-width: 1136px;
+  margin: 90px auto 80px;
   background-color: #0f1121;
 }
 
@@ -18,18 +17,20 @@
 .pagination_wrapper {
   display: flex;
   justify-content: center;
-  margin: 40px auto 80px;
+  margin: 0 auto 80px;
 }
 
 .phones_container {
+  max-width: 1138px;
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
-  margin: 24px 24px 0;
+  margin: 24px 0 40px;
 }
 
 .title {
   max-width: 1136px;
-  margin: 40px 24px 0;
+  margin: 40px 0 0;
   text-align: start;
   font-family: 'Mont', sans-serif;
   font-style: normal;
@@ -45,7 +46,7 @@
 .models_amount {
   display: block;
   max-width: 1136px;
-  margin: 8px 24px 0;
+  margin: 8px 0 0;
   text-align: start;
   font-family: 'Mont-Regular';
   color: var(--secondary);

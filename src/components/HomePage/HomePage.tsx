@@ -8,24 +8,20 @@ export const HomePage = () => {
     <div className={cl.container}>
       <div className={cl.grid}>
         <h1
-          className={
-            `${cl.title} 
+          className={`${cl.title} 
           ${cl.grid__item} 
           ${cl.grid__item__desktop_1_17} 
           ${cl.grid__item__tablet_1_6}  
-          ${cl.grid__item__mobile_1_4}`
-          }
+          ${cl.grid__item__mobile_1_4}`}
         >
           Welcome to Nice Gadgets store!
         </h1>
 
         <Swiper
-          className={
-            `${cl.grid__item} 
+          className={`${cl.grid__item} 
           ${cl.grid__item__desktop_1_24} 
           ${cl.grid__item__tablet_1_12} 
-          ${cl.grid__item__mobile_1_4}`
-          }
+          ${cl.grid__item__mobile_1_4}`}
           navigation
         >
           <SwiperSlide>

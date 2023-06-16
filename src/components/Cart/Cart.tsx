@@ -48,13 +48,6 @@ export const Cart = () => {
     setTotalPrice(totalPrice - item.price * item.quantity);
   }
 
-  // function removeFromCart(item: CartItem) {
-  //   const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
-
-  //   setCart(updatedCart);
-  //   setTotalPrice(totalPrice - item.price * item.quantity);
-  // }
-
   return (
     <div className={cl.cart}>
       <div className={cl.cart__container}>

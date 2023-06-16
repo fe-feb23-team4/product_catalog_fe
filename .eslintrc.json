@@ -16,7 +16,7 @@
   },
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/no-extraneous-dependencies": 0,
     "linebreak-style": 0
   }
 }

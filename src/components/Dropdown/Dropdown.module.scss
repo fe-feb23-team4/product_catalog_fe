@@ -31,7 +31,8 @@
   display: inline-block;
 }
 
-.link, .button {
+.link,
+.button {
   display: flex;
   align-items: center;
   justify-content: space-between;

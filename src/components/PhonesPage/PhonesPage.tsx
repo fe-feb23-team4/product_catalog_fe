@@ -1,19 +1,21 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/jsx-no-bind */
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Phone } from '../../types/Phone';
 import { Breadscrumbs } from '../BreadScrumbs/BreadScrumbs';
 import { CardItem } from '../CardItem/CardItem';
 import { DropdownCustom } from '../Dropdown/DropdownCustom';
 import { Pagination } from '../Pagination';
+import { getPhones } from '../../api/phones';
 import cl from './PhonesPage.module.scss';
 
 export const PhonesPage = () => {
+  const [phones, setPhones] = useState<Phone[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isActivated, setIsActivated] = useState('');
-  const page = searchParams.get('page') || '1';
-  const perPage = searchParams.get('perPage') || 'All';
-  const sortBy = searchParams.get('sortBy') || 'Newest';
+  const page: string = searchParams.get('page') || '1';
+  const perPage: string = searchParams.get('perPage') || 'All';
+  const sortBy: string = searchParams.get('sortBy') || 'Newest';
 
   function updateSearchParams(params: { [key: string]: string | null }) {
     Object.entries(params).forEach(([key, value]) => {
@@ -46,9 +48,18 @@ export const PhonesPage = () => {
     updateSearchParams({ sortBy: event.currentTarget.innerHTML || null });
   }
 
+  useEffect(() => {
+    const setVisiblePhones = async () => {
+      const allPhones = await getPhones();
+
+      setPhones(allPhones.data);
+    };
+
+    setVisiblePhones();
+  }, [page, perPage, sortBy]);
+
   return (
     <div className={cl.container}>
-
       <div className={cl.breadscrumbs_wrapper}>
         <Breadscrumbs category="Phones" />
       </div>
@@ -90,15 +101,14 @@ export const PhonesPage = () => {
       </div>
 
       <div className={cl.phones_container}>
-        <CardItem />
-        <CardItem />
-        <CardItem />
-        <CardItem />
+        {phones.map((phone) => (
+          <CardItem phone={phone} key={phone.id} />
+        ))}
       </div>
 
       <div className={cl.pagination_wrapper}>
         <Pagination
-          total={71}
+          total={phones.length}
           currentParams={searchParams}
           onPageChange={onPageChange}
           onArrowPageChange={updateSearchParams}

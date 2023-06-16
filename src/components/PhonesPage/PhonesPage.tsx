@@ -11,7 +11,7 @@ import { getPhones } from '../../api/phones';
 import cl from './PhonesPage.module.scss';
 
 export const PhonesPage = () => {
-  const [phones, setPhones] = useState<Phone[]>([]);
+  const [phones, setPhones] = useState<Phone[] | []>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isActivated, setIsActivated] = useState('');
   const page: string = searchParams.get('page') || '1';
@@ -51,7 +51,12 @@ export const PhonesPage = () => {
 
   useEffect(() => {
     const setVisiblePhones = async () => {
-      const allPhones = await getPhones();
+      const normalizedPerPage = perPage === 'All'
+        ? '100'
+        : perPage;
+      const allPhones = await getPhones(
+        page, normalizedPerPage, sortBy, 'phones',
+      );
 
       setPhones(allPhones.data);
     };
@@ -109,7 +114,7 @@ export const PhonesPage = () => {
 
       <div className={cl.pagination_wrapper}>
         <Pagination
-          total={phones.length}
+          total={71}
           currentParams={searchParams}
           onPageChange={onPageChange}
           onArrowPageChange={updateSearchParams}

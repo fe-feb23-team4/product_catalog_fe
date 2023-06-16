@@ -11,6 +11,11 @@ p {
   font-family: 'Mont-Semibold', serif;
 }
 
+.App {
+  background-color: var(--black);
+  overflow: hidden;
+}
+
 .container {
   margin: 0 auto;
   background-color: var(--black);

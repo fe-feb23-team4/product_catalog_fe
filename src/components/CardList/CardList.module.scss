@@ -1,0 +1,37 @@
+@import '../../styles/utils/mixins.scss';
+
+.list {
+  overflow: hidden;
+
+  &__container {
+    display: flex;
+    gap: 16px;
+
+    transition: transform 0.3s ease-in-out;
+  }
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.arrow__container {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-bottom: 28px;
+  button:first-child {
+    transform: rotateY(180deg);
+  }
+}
+
+.title {
+  color: var(--white);
+  letter-spacing: -0.01em;
+  font-size: 32px;
+  line-height: 41px;
+  font-family: 'Mont-Bold', sans-serif;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}

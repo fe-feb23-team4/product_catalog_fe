@@ -1,25 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import cl from './CardItem.module.scss';
 import { AddToCardBtn } from '../AddToCardBtn';
 import { FavoriteBtn } from '../FavoriteBtn';
+import { Phone } from '../../types/Phone';
 
-const phone = {
-  id: '1',
-  category: 'phones',
-  phoneId: 'apple-iphone-7-32gb-black',
-  itemId: 'apple-iphone-7-32gb-black',
-  name: 'Apple iPhone 7 32GB Black',
-  fullPrice: 400,
-  price: 375,
-  screen: "4.7' IPS",
-  capacity: '32GB',
-  color: 'black',
-  ram: '2GB',
-  year: 2016,
-  image: 'img/phones/apple-iphone-11/red/00.jpg',
-};
-
-export const CardItem = () => {
+interface Props {
+  phone: Phone;
+}
+export const CardItem: React.FC<Props> = ({ phone }) => {
   const [isAddToCard, setIsAddToCard] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -31,7 +19,9 @@ export const CardItem = () => {
         let phoneIds = storedCardItems ? JSON.parse(storedCardItems) : [];
 
         if (phoneIds.includes(phone.id)) {
-          phoneIds = phoneIds.filter((id: string) => id !== phone.id);
+          phoneIds = phoneIds.filter(
+            (id: string) => id !== phone.id.toString(),
+          );
         } else {
           phoneIds.push(phone.id);
         }
@@ -46,7 +36,9 @@ export const CardItem = () => {
           : [];
 
         if (phoneIds.includes(phone.id)) {
-          phoneIds = phoneIds.filter((id: string) => id !== phone.id);
+          phoneIds = phoneIds.filter(
+            (id: string) => id !== phone.id.toString(),
+          );
         } else {
           phoneIds.push(phone.id);
         }
@@ -75,7 +67,7 @@ export const CardItem = () => {
     <div className={cl.cardItem}>
       <div className={cl.cardItem__img}>
         <img
-          src={`/product_catalog_fe/${phone.image}`}
+          src={`https://product-catalog-be-s8k7.onrender.com/${phone.image}`}
           alt={phone.image.split('/')[2]}
         />
       </div>

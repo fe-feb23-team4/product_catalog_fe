@@ -34,7 +34,12 @@ export const DropdownCustom: FC<Props> = ({
           onClick={() => handleClick(!isActive)}
         >
           {currentOption}
-          <img src={isActive ? arrowDown : arrowUp} alt="selection-arrow" />
+          <img
+            src={isActive
+              ? arrowDown
+              : arrowUp}
+            alt="selection-arrow"
+          />
         </button>
         <ul
           className={cn(cl.list, {

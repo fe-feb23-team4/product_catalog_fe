@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable react/jsx-no-bind */
 import { MouseEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';

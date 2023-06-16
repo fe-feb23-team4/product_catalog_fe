@@ -36,11 +36,8 @@ export const AddButtons = () => {
         <img src={heart} alt="heart_icon" />
 
         {favoriteItems.length !== 0 && (
-          <div className={cl.count__button}>
-            {favoriteItems.length}
-          </div>
+          <div className={cl.count__button}>{favoriteItems.length}</div>
         )}
-
       </NavLink>
 
       <NavLink

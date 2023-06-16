@@ -3,7 +3,6 @@
 @import '../../App.scss';
 
 .scelet_about {
-
   &__title {
     position: relative;
     font-family: 'Mont-Bold', sans-serif;
@@ -73,7 +72,6 @@
 }
 
 .scelet_settings {
-
   &__buttons {
     display: flex;
     justify-content: space-between;
@@ -264,7 +262,6 @@
 }
 
 .scelet_slider {
-
   &__carts {
     display: flex;
     gap: 16px;

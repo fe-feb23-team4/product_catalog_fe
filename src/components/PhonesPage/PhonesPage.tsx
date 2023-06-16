@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable react/jsx-no-bind */
 import { MouseEvent, useEffect, useState } from 'react';
@@ -12,6 +13,7 @@ import cl from './PhonesPage.module.scss';
 
 export const PhonesPage = () => {
   const [phones, setPhones] = useState<Phone[] | []>([]);
+  const [phonesAmount, setPhonesAmount] = useState(71);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isActivated, setIsActivated] = useState('');
   const page: string = searchParams.get('page') || '1';
@@ -51,14 +53,23 @@ export const PhonesPage = () => {
 
   useEffect(() => {
     const setVisiblePhones = async () => {
-      const normalizedPerPage = perPage === 'All'
-        ? '100'
-        : perPage;
-      const allPhones = await getPhones(
-        page, normalizedPerPage, sortBy, 'phones',
-      );
+      try {
+        const normalizedPerPage = perPage === 'All'
+          ? '71'
+          : perPage;
+        const allPhones = await getPhones(
+          page, normalizedPerPage, sortBy, 'phones',
+        );
 
-      setPhones(allPhones.data);
+        const { count, products } = allPhones.data;
+
+        console.log(allPhones);
+
+        setPhonesAmount(count);
+        setPhones(products);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     setVisiblePhones();
@@ -114,7 +125,7 @@ export const PhonesPage = () => {
 
       <div className={cl.pagination_wrapper}>
         <Pagination
-          total={71}
+          total={phonesAmount}
           currentParams={searchParams}
           onPageChange={onPageChange}
           onArrowPageChange={updateSearchParams}

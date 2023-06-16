@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import { Phone } from '../types/Phone';
+import { ProductResponse } from '../types/Response';
 
 const API_URL = 'https://localhost:3000';
 
@@ -39,7 +41,7 @@ export const getPhones = (
     }
   }
 
-  return axios.get<Phone[]>(baseUrl);
+  return axios.get<ProductResponse>(baseUrl);
 };
 
 export const getPhonesNew = () => {

@@ -11,7 +11,6 @@ import { getPhones } from '../../api/phones';
 import cl from './PhonesPage.module.scss';
 
 export const PhonesPage = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [phones, setPhones] = useState<Phone[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isActivated, setIsActivated] = useState('');

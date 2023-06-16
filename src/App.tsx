@@ -8,23 +8,28 @@ import { PhonesPage } from './components/PhonesPage';
 import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
 import { HomePage } from './components/HomePage';
+import { MyContextProvider } from './Context/MyContext';
 
 function App() {
   return (
-    <div className="App">
-      <HashRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/phones" element={<PhonesPage />} />
-          <Route path="/tablets" element={<TabletsPage />} />
-          <Route path="/accessories" element={<AccessoriesPage />} />
-          <Route path="/favourite" element={<FavoritePage />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </HashRouter>
-      <Footer />
-    </div>
+    <MyContextProvider>
+      <div className="App">
+        <div className="flex-wrapper">
+          <HashRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/phones" element={<PhonesPage />} />
+              <Route path="/tablets" element={<TabletsPage />} />
+              <Route path="/accessories" element={<AccessoriesPage />} />
+              <Route path="/favourite" element={<FavoritePage />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </HashRouter>
+        </div>
+        <Footer />
+      </div>
+    </MyContextProvider>
   );
 }
 

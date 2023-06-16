@@ -4,5 +4,13 @@ import { Phone } from '../types/Phone';
 const API_URL = 'https://product-catalog-be-s8k7.onrender.com';
 
 export const getPhones = () => {
-  return axios.get<Phone[]>(`${API_URL}/phones`);
+  return axios.get<Phone[]>(`${API_URL}/products`);
+};
+
+export const getPhonesNew = () => {
+  return axios.get<Phone[]>(`${API_URL}/products/new`);
+};
+
+export const getPhonesDiscount = () => {
+  return axios.get<Phone[]>(`${API_URL}/products/discount`);
 };

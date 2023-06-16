@@ -37,3 +37,18 @@
     }
   }
 }
+
+.count__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #eb5757;
+  border-radius: 100%;
+  color: #f1f2f9;
+  right: 15px;
+  bottom: 30px;
+  text-decoration: none;
+}

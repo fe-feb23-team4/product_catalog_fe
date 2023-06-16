@@ -11,6 +11,18 @@ p {
   font-family: 'Mont-Semibold', serif;
 }
 
+.App {
+  background-color: var(--black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex-wrapper {
+  flex: 1 1 auto;
+}
+
 .container {
   margin: 0 auto;
   background-color: var(--black);
@@ -29,3 +41,15 @@ p {
     padding: 0 16px 0 16px;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 20px;
+}
+
+

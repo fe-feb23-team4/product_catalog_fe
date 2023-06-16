@@ -1,6 +1,7 @@
 .container {
-  max-width: 100%;
-  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 1136px;
+  margin: 90px auto 80px;
   background-color: #0f1121;
 }
 
@@ -15,4 +16,12 @@
   letter-spacing: -0.01em;
 
   color: #f1f2f9;
+}
+
+.phones_container {
+  max-width: 1138px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0 40px;
 }

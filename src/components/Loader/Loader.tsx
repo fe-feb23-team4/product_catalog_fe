@@ -1,5 +1,10 @@
 import cl from './Loader.module.scss';
 
 export const Loader = () => {
-  return <span className={cl.loader} />;
+  return (
+    <div className={cl.loader}>
+      <span className={cl.loader__first} />
+      <span className={cl.loader__second}>L &nbsp; ading</span>
+    </div>
+  );
 };

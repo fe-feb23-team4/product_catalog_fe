@@ -28,7 +28,7 @@ export function CardList() {
             myDisabled={slideCounter === 0}
             handleArrow={() => {
               if (slideCounter !== 0) {
-                setSlideCounter(prevState => prevState - 1);
+                setSlideCounter((prevState) => prevState - 1);
               }
             }}
           />
@@ -36,17 +36,18 @@ export function CardList() {
             myDisabled={slideCounter === 6}
             handleArrow={() => {
               if (slideCounter !== 6) {
-                setSlideCounter(prevState => prevState + 1);
+                setSlideCounter((prevState) => prevState + 1);
               }
             }}
           />
         </div>
       </div>
-      <div style={{ transform: `translateX(-${25 * slideCounter}%)` }} className={cl.list__container}>
-        {phonesList.map(phone => (
-          <React.Fragment
-            key={phone.id}
-          >
+      <div
+        style={{ transform: `translateX(-${25 * slideCounter}%)` }}
+        className={cl.list__container}
+      >
+        {phonesList.map((phone) => (
+          <React.Fragment key={phone.id}>
             <CardItem phone={phone} />
           </React.Fragment>
         ))}

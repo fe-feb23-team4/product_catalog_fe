@@ -103,7 +103,7 @@ export const PhonesPage = () => {
       </div>
 
       <div className={cl.phones_container}>
-        {phones.map(phone => (
+        {phones.map((phone) => (
           <CardItem phone={phone} key={phone.id} />
         ))}
       </div>

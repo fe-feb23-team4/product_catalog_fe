@@ -19,8 +19,9 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
         let phoneIds = storedCardItems ? JSON.parse(storedCardItems) : [];
 
         if (phoneIds.includes(phone.id)) {
-          phoneIds = phoneIds
-            .filter((id: string) => id !== phone.id.toString());
+          phoneIds = phoneIds.filter(
+            (id: string) => id !== phone.id.toString(),
+          );
         } else {
           phoneIds.push(phone.id);
         }
@@ -35,8 +36,9 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
           : [];
 
         if (phoneIds.includes(phone.id)) {
-          phoneIds = phoneIds
-            .filter((id: string) => id !== phone.id.toString());
+          phoneIds = phoneIds.filter(
+            (id: string) => id !== phone.id.toString(),
+          );
         } else {
           phoneIds.push(phone.id);
         }

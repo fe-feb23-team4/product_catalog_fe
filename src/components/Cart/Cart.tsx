@@ -4,6 +4,7 @@ import { useState } from 'react';
 import cl from './Cart.module.scss';
 import arrowLeft from '../../assets/ArrowLeft.svg';
 import close from '../../assets/Close.svg';
+import { Modal } from '../Modal/Modal';
 
 interface CartItem {
   id: number;
@@ -76,6 +77,7 @@ const template = [
 export const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [cart, setCart] = useState(template);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function removeFromCart(item: CartItem) {
     const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
@@ -204,13 +206,19 @@ export const Cart = () => {
                 items
               </p>
               <div className={cl.cart__total_line}> </div>
-              <button type="button" className={cl.cart__total_button}>
+              <button
+                type="button"
+                className={cl.cart__total_button}
+                onClick={() => setIsModalOpen(true)}
+              >
                 Checkout
               </button>
             </div>
           </div>
         )}
       </div>
+
+      {isModalOpen && <Modal isOpen onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 };

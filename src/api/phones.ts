@@ -47,3 +47,7 @@ export const getPhones = (
 export const getPhonesNew = () => {
   return axios.get<Phone[]>(`${API_URL}/products/new`);
 };
+
+export const getPhonesDiscount = () => {
+  return axios.get<Phone[]>(`${API_URL}/products/discount`);
+};

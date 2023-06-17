@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { FC, MouseEventHandler } from 'react';
 import cn from 'classnames';
 import cl from './Pagination.module.scss';

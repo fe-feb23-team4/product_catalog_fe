@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Phone } from '../types/Phone';
 import { ProductResponse } from '../types/Response';
 
-const API_URL = 'https://localhost:3000';
+const API_URL = 'http://localhost:5000';
 
 export const getPhones = (
   page?: string,

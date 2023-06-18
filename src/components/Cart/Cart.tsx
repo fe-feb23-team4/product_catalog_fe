@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable no-confusing-arrow */
 import { useEffect, useState } from 'react';
@@ -23,6 +24,7 @@ export const Cart = () => {
     let cartIds: number[] = [];
 
     if (cartItemsIds) {
+      console.log(cartItemsIds);
       cartIds = JSON.parse(cartItemsIds) as number[];
     }
 

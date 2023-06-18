@@ -1,0 +1,277 @@
+@import '../../styles/utils/mixins.scss';
+@import '../../styles/utils/grid.scss';
+@import '../../App.scss';
+
+.scelet_about {
+  &__title {
+    position: relative;
+    font-family: 'Mont-Bold', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: var(--white);
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+
+    &::after {
+      content: '';
+      bottom: 0;
+      width: 100%;
+      position: absolute;
+      background-color: var(--elemets);
+      height: 1px;
+      display: block;
+    }
+  }
+
+  &__content {
+    margin-bottom: 56px;
+  }
+
+  &__small_title {
+    width: 270px;
+    background-color: var(--icons);
+    border-radius: 4px;
+    font-family: 'Mont-Regular', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: var(--icons);
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    height: 24px;
+    margin-bottom: 10px;
+    background-color: var(--icons);
+    border-radius: 4px;
+  }
+
+  &__option {
+    margin-bottom: 8px;
+  }
+
+  &__option_name {
+    font-family: 'Mont-Regular', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--secondary);
+    text-transform: capitalize;
+  }
+
+  &__option_content {
+    font-size: 12px;
+    background-color: var(--icons);
+    color: var(--icons);
+    border-radius: 4px;
+  }
+}
+
+.scelet_settings {
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    border-radius: 4px;
+  }
+
+  &__cart_button {
+    height: 50px;
+    width: 90%;
+    background-color: var(--icons);
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+
+  &__fav_button {
+    height: 50px;
+    width: 10%;
+    border-radius: 4px;
+    background-color: var(--icons);
+  }
+
+  &__title {
+    font-family: 'Mont-Regular', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--secondary);
+    margin-bottom: 9px;
+
+    &__id {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_div {
+      height: 12px;
+      width: 35px;
+      background-color: var(--icons);
+      border-radius: 4px;
+    }
+  }
+
+  &__colors {
+    display: flex;
+    gap: 9px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--elemets);
+    margin-bottom: 24px;
+  }
+
+  &__button_color {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--white);
+
+    &_text {
+      position: absolute;
+      top: -10px;
+      padding-bottom: 50px;
+
+      font-size: 8px;
+      color: var(--black-color);
+      font-family: 'Mont';
+
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+  }
+
+  &__color {
+    border: 1px solid var(--black);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    &__none {
+      background-color: var(--icons);
+    }
+  }
+
+  &__capacities {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--elemets);
+    margin-bottom: 24px;
+    border-radius: 4px;
+
+    @include tablet {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__button_capacity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 63px;
+    height: 32px;
+    border: 1px solid var(--icons);
+    padding: 8px;
+    background-color: var(--black-color);
+    border-radius: 4px;
+    color: var(--white-color);
+
+    &_in {
+      border-radius: 4px;
+      background-color: var(--icons);
+      height: 14px;
+      width: 40px;
+    }
+  }
+
+  &__add_header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+  }
+
+  &__add_current_price {
+    background-color: var(--icons);
+
+    font-family: 'Mont-Regular', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 30px;
+    border-radius: 4px;
+    color: var(--icons);
+  }
+
+  &__add_prev_price {
+    background-color: var(--icons);
+    border-radius: 4px;
+
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 24px;
+    text-decoration-line: line-through;
+    color: var(--icons);
+  }
+
+  &__add_buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  &__add_tablet {
+    margin-bottom: 55px;
+
+    @include tablet {
+      margin-bottom: 65px;
+    }
+
+    @include desktop {
+      margin-bottom: 110px;
+    }
+  }
+}
+
+.scelet_title {
+  height: 75px;
+  background-color: var(--icons);
+  margin-bottom: 40px;
+  border-radius: 4px;
+
+  @include tablet {
+    width: 630px;
+    height: 50px;
+  }
+  @include desktop {
+    width: 900px;
+    height: 50px;
+  }
+}
+
+.scelet_slider {
+  &__carts {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.scelet_line {
+  height: 15px;
+  background-color: var(--icons);
+  color: var(--icons);
+  margin-bottom: 45px;
+  border-radius: 4px;
+}

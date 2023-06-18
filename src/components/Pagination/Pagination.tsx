@@ -30,13 +30,15 @@ export const Pagination: FC<Props> = ({
     pageCounts.push(i);
   }
 
-  let pagesToShow = currentPage <= 2
-    ? pageCounts.slice(0, 4)
-    : pageCounts.slice(currentPage - 2, currentPage + 2);
+  let pagesToShow
+    = currentPage <= 2
+      ? pageCounts.slice(0, 4)
+      : pageCounts.slice(currentPage - 2, currentPage + 2);
 
-  pagesToShow = currentPage >= pageCounts.length - 2
-    ? pageCounts.slice(pageCounts.length - 4, pageCounts.length)
-    : pagesToShow;
+  pagesToShow
+    = currentPage >= pageCounts.length - 2
+      ? pageCounts.slice(pageCounts.length - 4, pageCounts.length)
+      : pagesToShow;
   if (pagesToShow.length < 4) {
     pagesToShow = pageCounts.slice(0);
   }
@@ -48,10 +50,9 @@ export const Pagination: FC<Props> = ({
     <>
       <ul className={cl.list}>
         <li
-          className={cn(
-            cl.list_item__arrow, cl.list_item,
-            { [cl.list_item__disabled]: isFirstPage },
-          )}
+          className={cn(cl.list_item__arrow, cl.list_item, {
+            [cl.list_item__disabled]: isFirstPage,
+          })}
         >
           <a
             className={cn(cl.link, cl.arrow)}
@@ -90,10 +91,9 @@ export const Pagination: FC<Props> = ({
           </li>
         ))}
         <li
-          className={cn(
-            cl.list_item__arrow, cl.list_item,
-            { [cl.list_item__disabled]: isLastPage },
-          )}
+          className={cn(cl.list_item__arrow, cl.list_item, {
+            [cl.list_item__disabled]: isLastPage,
+          })}
         >
           <a
             className={cn(cl.link, cl.arrow)}

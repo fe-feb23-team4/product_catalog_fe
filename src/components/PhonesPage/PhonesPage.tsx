@@ -62,11 +62,12 @@ export const PhonesPage = () => {
     setIsLoading(true);
     const setVisiblePhones = async () => {
       try {
-        const normalizedPerPage = perPage === 'All'
-          ? '71'
-          : perPage;
+        const normalizedPerPage = perPage === 'All' ? '71' : perPage;
         const allPhones = await getPhones(
-          page, normalizedPerPage, sortBy, 'phones',
+          page,
+          normalizedPerPage,
+          sortBy,
+          'phones',
         );
 
         const { count, products } = allPhones.data;
@@ -125,15 +126,15 @@ export const PhonesPage = () => {
           />
         </div>
 
-        {isLoading
-          ? <Loader />
-          : (
-            <div className={cl.phones_container}>
-              {phones.map((phone) => (
-                <CardItem phone={phone} key={phone.id} />
-              ))}
-            </div>
-          )}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className={cl.phones_container}>
+            {phones.map((phone) => (
+              <CardItem phone={phone} key={phone.id} />
+            ))}
+          </div>
+        )}
 
         <div className={cl.pagination_wrapper}>
           <Pagination

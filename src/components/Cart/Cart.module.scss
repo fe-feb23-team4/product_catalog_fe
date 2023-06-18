@@ -28,6 +28,10 @@
     padding: 16px;
     background-color: var(--black);
     color: var(--white);
+
+    .loader_wrapper {
+      width: 100%;
+    }
   }
 
   &__title {

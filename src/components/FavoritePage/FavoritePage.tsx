@@ -41,8 +41,8 @@ export const FavoritePage = () => {
     setVisiblePhones();
   }, []);
 
-  const favoritePhones = phones
-    .filter((phone) => favoriteItems.includes(phone.id));
+  // eslint-disable-next-line max-len
+  const favoritePhones = phones.filter((phone) => favoriteItems.includes(phone.id));
 
   return (
     <div className={cl.container}>

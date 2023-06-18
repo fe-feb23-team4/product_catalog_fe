@@ -9,7 +9,7 @@ import { ErrorMessage } from '../ErrorMessage';
 import { Loader } from '../Loader';
 
 export const HomePage = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const {
@@ -24,8 +24,8 @@ export const HomePage = () => {
 
       setPhonesListNew(response.data);
       setIsLoading(false);
-    } catch (e: any) {
-      setError(e);
+    } catch {
+      setError(true);
     }
   };
 
@@ -34,8 +34,8 @@ export const HomePage = () => {
       const response = await getPhonesDiscount();
 
       setPhonesListDiscount(response.data);
-    } catch (e: any) {
-      setError(e);
+    } catch {
+      setError(true);
     }
   };
 

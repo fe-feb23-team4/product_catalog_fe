@@ -1,5 +1,5 @@
 /* eslint-disable no-confusing-arrow */
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cl from './Cart.module.scss';
 import arrowLeft from '../../assets/ArrowLeft.svg';
 import close from '../../assets/Close.svg';
@@ -46,7 +46,6 @@ export const Cart = () => {
       'AddedToCard',
       JSON.stringify(updatedCart.map((cartItem) => cartItem.id)),
     );
-
     setCart(updatedCart);
     setTotalPrice(totalPrice - item.price * item.quantity);
 

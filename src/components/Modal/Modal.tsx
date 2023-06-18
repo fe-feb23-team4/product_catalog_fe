@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-console */
 import React from 'react';
 import cl from './Modal.module.scss';
 import close from '../../assets/Close.svg';

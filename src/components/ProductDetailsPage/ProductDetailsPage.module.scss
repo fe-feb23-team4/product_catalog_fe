@@ -141,7 +141,7 @@
     align-items: center;
     @include square(32px);
     border-radius: 50%;
-    background-color: var(--white);    
+    background-color: var(--white);
 
     &_text {
       position: absolute;
@@ -149,7 +149,7 @@
       padding-bottom: 50px;
 
       font-size: 8px;
-      color:  var(--black-color);
+      color: var(--black-color);
       font-family: 'Mont';
 
       &:hover {

@@ -39,7 +39,8 @@
     "*.js": "npm run lint",
     "*.ts": "npm run lint",
     "*.tsx": "npm run lint",
-    "*.jsx": "npm run lint"
+    "*.jsx": "npm run lint",
+    "*.scss": "npm run lint"
   },
   "eslintConfig": {
     "extends": [

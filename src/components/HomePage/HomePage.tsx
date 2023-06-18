@@ -7,6 +7,7 @@ import { useMyContext } from '../../Context/MyContext';
 import { getPhonesDiscount, getPhonesNew } from '../../api/phones';
 import { ErrorMessage } from '../ErrorMessage';
 import { Loader } from '../Loader';
+import { CategorySection } from '../CategorySection';
 
 export const HomePage = () => {
   const [error, setError] = useState(null);
@@ -102,6 +103,7 @@ export const HomePage = () => {
         </Swiper>
       </div>
       <CardList phones={phonesListNew} title="Brand new models" />
+      <CategorySection />
       <CardList phones={phonesListDiscount} title="Hot prices" />
     </div>
   );

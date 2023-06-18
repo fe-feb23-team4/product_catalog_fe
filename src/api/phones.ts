@@ -45,7 +45,7 @@ export const getPhones = (
 };
 
 export const getAllPhoneDetails = () => {
-  return axios.get<Phone>(`${API_URL}/phones`);
+  return axios.get<Phone[]>(`${API_URL}/phones`);
 };
 
 export const getPhonesNew = () => {
@@ -61,5 +61,5 @@ export const getPhonesRecommended = (phoneId: string) => {
 };
 
 export const getPhoneById = (phoneId: string) => {
-  return axios.get<Phone[]>(`${API_URL}/phones?id=${phoneId}`);
+  return axios.get<Phone>(`${API_URL}/phones?id=${phoneId}`);
 };

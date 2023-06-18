@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { getPhonesNew } from '../../api/phones';
-import { Phone } from '../../types/Phone';
+import React, { useState } from 'react';
 import { CardItem } from '../CardItem';
 import cl from './CardList.module.scss';
 import { Arrow } from '../Arrow';
+import { Phone } from '../../types/Phone';
 
-export function CardList() {
-  const [phonesList, setPhonesList] = useState<Phone[]>([]);
+interface Props {
+  phones: Phone[];
+  title: string;
+}
+export const CardList: React.FC<Props> = (props) => {
   const [slideCounter, setSlideCounter] = useState(0);
-
-  const fetchPhones = async () => {
-    const response = await getPhonesNew();
-
-    setPhonesList(response.data);
-  };
-
-  useEffect(() => {
-    fetchPhones();
-  }, []);
 
   return (
     <div className={cl.list}>
       <div className={cl.wrapper}>
-        <h2 className={cl.title}>Text</h2>
+        <h2 className={cl.title}>{props.title}</h2>
         <div className={cl.arrow__container}>
           <Arrow
             myDisabled={slideCounter === 0}
@@ -46,7 +38,7 @@ export function CardList() {
         style={{ transform: `translateX(-${25 * slideCounter}%)` }}
         className={cl.list__container}
       >
-        {phonesList.map((phone) => (
+        {props.phones.map((phone: Phone) => (
           <React.Fragment key={phone.id}>
             <CardItem phone={phone} />
           </React.Fragment>
@@ -54,4 +46,4 @@ export function CardList() {
       </div>
     </div>
   );
-}
+};

@@ -92,7 +92,7 @@ export const PhonesPage = () => {
 
         <h1 className={cl.title}>Mobile phones</h1>
 
-        <span className={cl.models_amount}>71 models</span>
+        <span className={cl.models_amount}>{`${phonesAmount} models`}</span>
 
         <div className={cl.dropdown_wrapper}>
           <DropdownCustom

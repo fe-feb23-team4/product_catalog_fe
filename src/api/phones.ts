@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import axios from 'axios';
 import { Phone } from '../types/Phone';
 import { ProductResponse } from '../types/Response';

@@ -1,8 +1,8 @@
 import './App.scss';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { Header } from './components/Header';
+import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { Cart } from './components/Cart';
+import { Cart } from './components/Cart/Cart';
 import { FavoritePage } from './components/FavoritePage/FavoritePage';
 // import { CardItem } from './components/CardItem';
 import { PhonesPage } from './components/PhonesPage';

@@ -33,14 +33,16 @@ export const FavoritePage = () => {
     const setVisiblePhones = async () => {
       const allPhones = await getPhones();
 
-      setPhones(allPhones.data);
+      const { products } = allPhones.data;
+
+      setPhones(products);
     };
 
     setVisiblePhones();
   }, []);
 
   const favoritePhones = phones
-    .filter(phone => favoriteItems.includes(phone.id));
+    .filter((phone) => favoriteItems.includes(phone.id));
 
   return (
     <div className={cl.container}>

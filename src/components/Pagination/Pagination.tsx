@@ -29,6 +29,19 @@ export const Pagination: FC<Props> = ({
     pageCounts.push(i);
   }
 
+  let pagesToShow
+    = currentPage <= 2
+      ? pageCounts.slice(0, 4)
+      : pageCounts.slice(currentPage - 2, currentPage + 2);
+
+  pagesToShow
+    = currentPage >= pageCounts.length - 2
+      ? pageCounts.slice(pageCounts.length - 4, pageCounts.length)
+      : pagesToShow;
+  if (pagesToShow.length < 4) {
+    pagesToShow = pageCounts.slice(0);
+  }
+
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === pageCounts.length;
 
@@ -36,12 +49,12 @@ export const Pagination: FC<Props> = ({
     <>
       <ul className={cl.list}>
         <li
-          className={cn(cl.list_item, {
+          className={cn(cl.list_item__arrow, cl.list_item, {
             [cl.list_item__disabled]: isFirstPage,
           })}
         >
           <a
-            className={cl.link}
+            className={cn(cl.link, cl.arrow)}
             href="/"
             aria-disabled={isFirstPage}
             onClick={(event) => {
@@ -59,7 +72,7 @@ export const Pagination: FC<Props> = ({
             />
           </a>
         </li>
-        {pageCounts.map((page) => (
+        {pagesToShow.map((page) => (
           <li
             className={cn(cl.list_item, { [cl.active]: page === +currentPage })}
             key={page}
@@ -68,6 +81,7 @@ export const Pagination: FC<Props> = ({
               className={cl.link}
               href="/"
               onClick={(event) => {
+                event.preventDefault();
                 onPageChange(event);
               }}
             >
@@ -76,10 +90,12 @@ export const Pagination: FC<Props> = ({
           </li>
         ))}
         <li
-          className={cn(cl.list_item, { [cl.list_item__disabled]: isLastPage })}
+          className={cn(cl.list_item__arrow, cl.list_item, {
+            [cl.list_item__disabled]: isLastPage,
+          })}
         >
           <a
-            className={cl.link}
+            className={cn(cl.link, cl.arrow)}
             href="/"
             aria-disabled={isLastPage}
             onClick={(event) => {

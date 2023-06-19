@@ -13,11 +13,18 @@
     margin: 20px auto;
     position: relative;
     border-radius: 50% 50% 0 0;
-    border-bottom: 10px solid #FF3D00;
-    background-color: #FFF;
-    background-image: radial-gradient(ellipse at center, #FFF 34%, #FF3D00 35%, #FF3D00 54%, #FFF 55%), linear-gradient(#FF3D00 10px, transparent 0);
+    border-bottom: 10px solid #ff3d00;
+    background-color: #fff;
+    background-image: radial-gradient(
+        ellipse at center,
+        #fff 34%,
+        #ff3d00 35%,
+        #ff3d00 54%,
+        #fff 55%
+      ),
+      linear-gradient(#ff3d00 10px, transparent 0);
     background-size: 28px 28px;
-    background-position: center 20px , center 2px;
+    background-position: center 20px, center 2px;
     background-repeat: no-repeat;
     box-sizing: border-box;
     animation: animloaderBack 1s linear infinite alternate;
@@ -31,7 +38,7 @@
       width: 64px;
       height: 44px;
       border-radius: 50%;
-      box-shadow: 0px 15px #FF3D00 inset;
+      box-shadow: 0px 15px #ff3d00 inset;
       top: 67px;
     }
 
@@ -43,7 +50,12 @@
       width: 34px;
       height: 34px;
       top: 112%;
-      background: radial-gradient(ellipse at center, #ffdf00 8%, rgba(249, 62, 0, 0.6) 24%, rgba(0, 0, 0, 0) 100%);
+      background: radial-gradient(
+        ellipse at center,
+        #ffdf00 8%,
+        rgba(249, 62, 0, 0.6) 24%,
+        rgba(0, 0, 0, 0) 100%
+      );
       border-radius: 50% 50% 0;
       background-repeat: no-repeat;
       background-position: -44px -44px;
@@ -52,7 +64,6 @@
       box-sizing: border-box;
       animation: animloader 1s linear infinite alternate;
     }
-
   }
 }
 
@@ -61,7 +72,7 @@
   font-size: 48px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #FFF;
+  color: #fff;
   position: relative;
 }
 .loader__second::before {
@@ -72,13 +83,11 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 5px solid #FFF;
-  border-bottom-color: #FF3D00;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
   box-sizing: border-box;
   animation: rotation 0.6s linear infinite;
 }
-
-
 
 @keyframes rotation {
   0% {
@@ -90,10 +99,14 @@
 }
 
 @keyframes animloaderBack {
-  0%, 30%, 70% {
+  0%,
+  30%,
+  70% {
     transform: translateY(0px);
   }
-  20%, 40%, 100% {
+  20%,
+  40%,
+  100% {
     transform: translateY(-5px);
   }
 }

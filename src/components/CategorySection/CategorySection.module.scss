@@ -1,4 +1,4 @@
-@import "../../styles/variables/variables.scss";
+@import '../../styles/variables/variables.scss';
 
 .category_section {
   width: 100%;
@@ -14,7 +14,7 @@
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    
+
     &__item {
       border: 2px solid gold;
       img {

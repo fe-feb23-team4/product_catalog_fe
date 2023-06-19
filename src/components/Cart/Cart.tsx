@@ -30,7 +30,8 @@ export const Cart = () => {
 
     fetch(`${BASE_URL}/products`)
       .then((res) => res.json())
-      .then((data) => data.filter((item: Phone) => cartIds?.includes(item.id)))
+      .then((data) => data.products
+        .filter((item: Phone) => cartIds?.includes(item.id)))
       .then((data) => {
         const cartItems = data.map((item: Phone) => ({ ...item, quantity: 1 }));
 

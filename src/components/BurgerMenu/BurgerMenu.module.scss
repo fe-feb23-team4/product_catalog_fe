@@ -8,6 +8,7 @@
   z-index: 1000;
   left: 0;
   top: 0;
+  text-align: center;
   transition: 0.3s;
   transform: translateY(-100%);
   opacity: 0;
@@ -58,6 +59,7 @@
   }
 
   .a {
+    padding: 8px 0;
     color: var(--secondary);
     font-family: 'Mont-bold';
     font-size: 12px;

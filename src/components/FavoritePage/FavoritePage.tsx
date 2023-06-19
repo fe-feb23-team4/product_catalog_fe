@@ -48,6 +48,11 @@ export const FavoritePage = () => {
     <div className={cl.container}>
       <Breadscrumbs category={category} />
       <h1 className={cl.title}>Favorites</h1>
+      <h2 className={cl.sub_title}>
+        {favoritePhones.length}
+        {' '}
+        items
+      </h2>
       <div className={cl.phones_container}>
         {favoritePhones.map((phone) => (
           <CardItem phone={phone} key={phone.id} />

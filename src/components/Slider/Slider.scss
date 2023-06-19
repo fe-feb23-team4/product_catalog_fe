@@ -1,0 +1,100 @@
+@import '../../styles/utils/mixins.scss';
+.main-banner {
+  margin-top: 56px;
+
+  @include tablet {
+    margin-top: 32px;
+  }
+
+  @include mobile {
+    margin: 24px -16px 0 -16px;
+  }
+
+  .swiper {
+    user-select: none;
+
+    &-container {
+      max-width: 100%;
+      overflow: visible;
+    }
+
+    &-button-next {
+      background-color: var(--surface-two);
+      height: 100%;
+      top: 5.5%;
+      right: 4px;
+      width: 32px;
+
+      &::after {
+        color: var(--white);
+        font-size: 10px;
+      }
+
+      @include tablet {
+        display: none;
+      }
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &-button-prev {
+      background-color: var(--surface-two);
+      height: 100%;
+      top: 5.5%;
+      left: 4px;
+      width: 32px;
+
+      &::after {
+        color: var(--white);
+        font-size: 10px;
+      }
+
+      @include tablet {
+        display: none;
+      }
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &-slide {
+      overflow: hidden;
+    }
+
+    &-pagination-bullet {
+      border-radius: 0;
+      background-color: var(--white);
+      width: 14px;
+      height: 4px;
+    }
+  }
+
+  .carousel-img {
+    display: block;
+    width: 90.25%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto;
+
+    @include tablet {
+      width: 100%;
+      object-position: center;
+    }
+
+    @include mobile {
+      width: 100%;
+      object-position: 88%;
+    }
+  }
+
+  .swiper-pagination,
+  .swiper-pagination-clickable,
+  .swiper-pagination-bullets,
+  .swiper-pagination-horizontal {
+    bottom: -29px !important;
+  }
+}

@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import cl from './FavoritePage.module.scss';
 import { Breadscrumbs } from '../BreadScrumbs/BreadScrumbs';
+import { getPhones } from '../../api/phones';
+import { CardItem } from '../CardItem';
+import { Phone } from '../../types/Phone';
 
 export const FavoritePage = () => {
   const category = 'Favorites';
 
-  const [favoriteItems, setFavoriteItems] = useState([]);
+  const [favoriteItems, setFavoriteItems] = useState<number[]>([]);
+  const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
     const getFavData = () => {
@@ -25,10 +29,30 @@ export const FavoritePage = () => {
     };
   }, [favoriteItems]);
 
+  useEffect(() => {
+    const setVisiblePhones = async () => {
+      const allPhones = await getPhones();
+
+      const { products } = allPhones.data;
+
+      setPhones(products);
+    };
+
+    setVisiblePhones();
+  }, []);
+
+  const favoritePhones = phones
+    .filter((phone) => favoriteItems.includes(phone.id));
+
   return (
     <div className={cl.container}>
       <Breadscrumbs category={category} />
       <h1 className={cl.title}>Favorites</h1>
+      <div className={cl.phones_container}>
+        {favoritePhones.map((phone) => (
+          <CardItem phone={phone} key={phone.id} />
+        ))}
+      </div>
     </div>
   );
 };

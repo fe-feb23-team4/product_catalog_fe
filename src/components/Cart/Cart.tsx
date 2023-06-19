@@ -30,7 +30,7 @@ export const Cart = () => {
 
     fetch(`${BASE_URL}/products`)
       .then((res) => res.json())
-      .then((data) => data.products
+      .then(({ products }) => products
         .filter((item: Phone) => cartIds?.includes(item.id)))
       .then((data) => {
         const cartItems = data.map((item: Phone) => ({ ...item, quantity: 1 }));
@@ -116,10 +116,10 @@ export const Cart = () => {
                           type="button"
                           className={`${cl.count_control__button} ${cl.decrement}`}
                           onClick={() => {
-                            // eslint-disable-next-line max-len
-                            const updatedCart = cart.map((good) => good.id === item.id
-                              ? { ...good, quantity: good.quantity - 1 }
-                              : good);
+                            const updatedCart = cart
+                              .map((good) => good.id === item.id
+                                ? { ...good, quantity: good.quantity - 1 }
+                                : good);
 
                             if (item.quantity === 1) {
                               removeFromCart(item);
@@ -145,10 +145,10 @@ export const Cart = () => {
                           type="button"
                           className={`${cl.count_control__button} ${cl.increment}`}
                           onClick={() => {
-                            // eslint-disable-next-line max-len
-                            const updatedCart = cart.map((good) => good.id === item.id
-                              ? { ...good, quantity: good.quantity + 1 }
-                              : good);
+                            const updatedCart = cart
+                              .map((good) => good.id === item.id
+                                ? { ...good, quantity: good.quantity + 1 }
+                                : good);
 
                             setCart(updatedCart);
                             setTotalPrice(totalPrice + item.price);
@@ -176,11 +176,9 @@ export const Cart = () => {
                   </h1>
 
                   <p className={cl.cart__total_quantity}>
-                    Total for
-                    {' '}
-                    {cart.reduce((total, item) => total + item.quantity, 0)}
-                    {' '}
-                    items
+                    {`Total for 
+                      ${cart.reduce((total, item) => total + item.quantity, 0)} 
+                      items`}
                   </p>
                   <div className={cl.cart__total_line}> </div>
                   <button

@@ -39,11 +39,7 @@ export const Modal: React.FC<Props> = ({ isOpen, onClose, data }) => {
                 {data.map((item) => {
                   return (
                     <li key={item.id} className={cl.modal__item}>
-                      {item.name}
-                      {' - '}
-                      {item.quantity}
-                      {' '}
-                      {item.quantity === 1 ? 'item' : 'items'}
+                      {`${item.name} - ${item.quantity} ${item.quantity === 1 ? 'item' : 'items'}`}
                     </li>
                   );
                 })}

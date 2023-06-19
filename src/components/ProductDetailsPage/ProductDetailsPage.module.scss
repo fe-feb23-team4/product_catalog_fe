@@ -3,8 +3,6 @@
 @import '../../App.scss';
 
 .scelet_about {
-  @include max-block;
-
   &__title {
     position: relative;
     font-family: 'Mont-Bold', sans-serif;
@@ -52,7 +50,6 @@
   }
 
   &__option {
-    @include top-actions;
     margin-bottom: 8px;
   }
 
@@ -75,8 +72,6 @@
 }
 
 .scelet_settings {
-  @include max-block;
-
   &__buttons {
     display: flex;
     justify-content: space-between;
@@ -97,10 +92,6 @@
     width: 10%;
     border-radius: 4px;
     background-color: var(--icons);
-  }
-
-  &__container_colors {
-    @include top-actions;
   }
 
   &__title {
@@ -139,7 +130,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @include square(32px);
     border-radius: 50%;
     background-color: var(--white);
 
@@ -161,7 +151,6 @@
   &__color {
     border: 1px solid var(--black);
 
-    @include square(30.5px);
     border-radius: 50%;
 
     cursor: pointer;
@@ -273,8 +262,6 @@
 }
 
 .scelet_slider {
-  @include max-block;
-
   &__carts {
     display: flex;
     gap: 16px;
@@ -287,8 +274,4 @@
   color: var(--icons);
   margin-bottom: 45px;
   border-radius: 4px;
-}
-
-.page {
-  @include max-block;
 }

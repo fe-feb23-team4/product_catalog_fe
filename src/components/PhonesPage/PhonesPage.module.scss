@@ -1,4 +1,10 @@
 @import '../../styles/variables/variables.scss';
+@import '../../styles/utils/mixins.scss';
+
+.wrapper {
+  margin: 0 24px;
+  min-height: 100vh;
+}
 
 .container {
   max-width: 1136px;
@@ -6,12 +12,9 @@
   background-color: #0f1121;
 }
 
-.breadscrumbs_wrapper {
-  padding: 24px 32px 0;
-}
-
 .dropdown_wrapper {
-  margin: 40px 24px 0;
+  margin: 40px 0 0;
+  display: flex;
 }
 
 .pagination_wrapper {
@@ -25,7 +28,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin: 24px 0 40px;
+  margin: 24px auto 40px;
+}
+
+.phones_container_wrapper {
+  max-width: 272px;
+
+  @include tablet {
+    max-width: 288px;
+  }
+
+  @include mobile {
+    max-width: 287px;
+  }
 }
 
 .title {
@@ -41,6 +56,11 @@
   letter-spacing: -0.01em;
 
   color: #f1f2f9;
+
+  @include mobile {
+    font-size: 32px;
+    line-height: 41px;
+  }
 }
 
 .models_amount {

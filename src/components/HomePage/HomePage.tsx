@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import cl from './HomePage.module.scss';
-import 'swiper/swiper.min.css';
 import { CardList } from '../CardList';
 import { useMyContext } from '../../Context/MyContext';
 import { getPhonesDiscount, getPhonesNew } from '../../api/phones';
 import { ErrorMessage } from '../ErrorMessage';
 import { Loader } from '../Loader';
+import { Slider } from '../Slider';
 import { CategorySection } from '../CategorySection';
 
 export const HomePage = () => {
@@ -64,7 +64,6 @@ export const HomePage = () => {
       <div className={cl.grid}>
         <h1
           className={`${cl.title} 
-          ${cl.grid__item} 
           ${cl.grid__item__desktop_1_17} 
           ${cl.grid__item__tablet_1_6}  
           ${cl.grid__item__mobile_1_4}`}
@@ -72,35 +71,15 @@ export const HomePage = () => {
           Welcome to Nice Gadgets store!
         </h1>
 
-        <Swiper
-          className={`${cl.grid__item} 
-          ${cl.grid__item__desktop_1_24} 
-          ${cl.grid__item__tablet_1_12} 
-          ${cl.grid__item__mobile_1_4}
-          ${cl.swiper}`}
-          navigation
+        <div
+          className={`
+        ${cl.grid__item__desktop_1_24}
+        ${cl.grid__item__tablet_1_12}
+        ${cl.grid__item__mobile_1_4}
+        `}
         >
-          <SwiperSlide>
-            <img
-              src="/product_catalog_fe/carousel/carousel_1.png"
-              alt="carousel"
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <img
-              src="/product_catalog_fe/carousel/carousel_1.png"
-              alt="carousel"
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <img
-              src="/product_catalog_fe/carousel/carousel_1.png"
-              alt="carousel"
-            />
-          </SwiperSlide>
-        </Swiper>
+          <Slider />
+        </div>
       </div>
       <CardList phones={phonesListNew} title="Brand new models" />
       <CategorySection />

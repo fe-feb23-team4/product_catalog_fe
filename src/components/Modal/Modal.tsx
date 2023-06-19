@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable no-console */
 import React from 'react';
 import cl from './Modal.module.scss';
 import close from '../../assets/Close.svg';
@@ -39,11 +37,7 @@ export const Modal: React.FC<Props> = ({ isOpen, onClose, data }) => {
                 {data.map((item) => {
                   return (
                     <li key={item.id} className={cl.modal__item}>
-                      {item.name}
-                      {' - '}
-                      {item.quantity}
-                      {' '}
-                      {item.quantity === 1 ? 'item' : 'items'}
+                      {`${item.name} - ${item.quantity} ${item.quantity === 1 ? 'item' : 'items'}`}
                     </li>
                   );
                 })}

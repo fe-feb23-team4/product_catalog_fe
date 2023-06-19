@@ -10,6 +10,7 @@ import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
 import { HomePage } from './components/HomePage';
 import { MyContextProvider } from './Context/MyContext';
+import { ProductPage } from './components/ProductPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/accessories" element={<AccessoriesPage />} />
               <Route path="/favourite" element={<FavoritePage />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/test" element={<ProductPage />} />
             </Routes>
           </HashRouter>
         </div>

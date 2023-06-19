@@ -131,7 +131,9 @@ export const PhonesPage = () => {
         ) : (
           <div className={cl.phones_container}>
             {phones.map((phone) => (
-              <CardItem phone={phone} key={phone.id} />
+              <div className={cl.phones_container_wrapper} key={phone.id}>
+                <CardItem phone={phone} />
+              </div>
             ))}
           </div>
         )}

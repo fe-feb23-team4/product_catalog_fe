@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import cl from './HomePage.module.scss';
 import { CardList } from '../CardList';

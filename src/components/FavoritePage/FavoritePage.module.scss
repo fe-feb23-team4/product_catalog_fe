@@ -1,3 +1,5 @@
+@import '../../styles/utils/mixins.scss';
+
 .container {
   min-height: 100vh;
   max-width: 1136px;
@@ -24,4 +26,27 @@
   flex-wrap: wrap;
   gap: 16px;
   margin: 24px 0 40px;
+}
+
+.sub_title {
+  padding-bottom: 40px;
+  padding-top: 8px;
+  font-family: 'Mont', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #75767F;
+}
+
+@include tablet {
+  .container {
+    padding-left: 33px;
+  }
+}
+
+@include mobile {
+  .container {
+    padding-left: 24px;
+  }
 }

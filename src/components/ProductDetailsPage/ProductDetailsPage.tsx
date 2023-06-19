@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import cl from './ProductDetailsPage.module.scss';
-// import { CardItem } from '../CardItem';
 
 export const ProductDetailsPage = () => {
   return (

@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer/Footer';
 import { Cart } from './components/Cart';
 import { FavoritePage } from './components/FavoritePage/FavoritePage';
-import { ProductDetailsPage } from './components/ProductDetailsPage';
 import { PhonesPage } from './components/PhonesPage';
 import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
@@ -30,7 +29,6 @@ function App() {
             </Routes>
           </HashRouter>
         </div>
-        <ProductDetailsPage />
         <Footer />
       </div>
     </MyContextProvider>

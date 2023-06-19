@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import cl from './ProductDetailsPage.module.scss';
-// import { CardItem } from '../CardItem';
 
 export const ProductDetailsPage = () => {
   return (
@@ -239,7 +238,6 @@ export const ProductDetailsPage = () => {
             )}
           >
             <div className={cl.scelet_slider__carts}>
-              {/* <CardItem /> */}
               {/* <CardItem />
               <CardItem />
               <CardItem /> */}

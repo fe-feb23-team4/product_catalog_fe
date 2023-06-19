@@ -240,6 +240,7 @@ export const ProductDetailsPage = () => {
             <div className={cl.scelet_slider__carts}>
               {/* <CardItem />
               <CardItem />
+              <CardItem />
               <CardItem /> */}
             </div>
           </div>

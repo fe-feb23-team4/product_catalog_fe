@@ -89,6 +89,7 @@ export const Pagination: FC<Props> = ({
             </a>
           </li>
         ))}
+
         <li
           className={cn(cl.list_item__arrow, cl.list_item, {
             [cl.list_item__disabled]: isLastPage,

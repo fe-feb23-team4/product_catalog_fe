@@ -1,5 +1,7 @@
+@import '../../styles/variables/variables.scss';
+
 .modalOverlay {
-  background-color: var(--accent);
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +14,18 @@
   z-index: 10;
 }
 
+.modal__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent);
+  color: var(--white);
+  border-radius: 8px;
+  margin: 16px auto;
+  padding: 20px 10px;
+}
+
 .modalContent {
   background-color: var(--surface-one);
   color: var(--white);
@@ -22,7 +36,6 @@
   padding: 20px;
   box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
 }
-
 .modalHeader {
   display: flex;
   align-items: center;

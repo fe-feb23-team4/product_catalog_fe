@@ -1,7 +1,32 @@
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import cl from './ProductDetailsPage.module.scss';
+import { getPhoneById } from '../../api/phones';
+import { PhoneProduct } from '../../types/PhoneProduct';
 
 export const ProductDetailsPage = () => {
+  const [phone, setPhone] = useState<PhoneProduct | null>(null);
+  const { phoneId } = useParams();
+
+  useEffect(() => {
+    const fetchPhoneAbout = async () => {
+      try {
+        const fetchedPhoneAbout = await getPhoneById(phoneId || '');
+
+        setPhone(fetchedPhoneAbout.data);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      }
+    };
+
+    fetchPhoneAbout();
+  }, [phoneId]);
+
+  // eslint-disable-next-line no-console
+  console.log(phone);
+
   return (
     <div className={cl.container}>
       <div className={cl.grid}>
@@ -109,22 +134,30 @@ export const ProductDetailsPage = () => {
             <div className={cl.scelet_settings__add_tablet}>
               <div className={cl.scelet_about__option}>
                 <p className={cl.scelet_about__option_name}>screen</p>
-                <div className={cl.scelet_about__option_content}>content</div>
+                <div className={cl.scelet_about__option_content}>
+                  {phone?.screen}
+                </div>
               </div>
 
               <div className={cl.scelet_about__option}>
                 <p className={cl.scelet_about__option_name}>resolution</p>
-                <div className={cl.scelet_about__option_content}>content</div>
+                <div className={cl.scelet_about__option_content}>
+                  {phone?.resolution}
+                </div>
               </div>
 
               <div className={cl.scelet_about__option}>
                 <p className={cl.scelet_about__option_name}>processor</p>
-                <div className={cl.scelet_about__option_content}>content</div>
+                <div className={cl.scelet_about__option_content}>
+                  {phone?.processor}
+                </div>
               </div>
 
               <div className={cl.scelet_about__option}>
                 <p className={cl.scelet_about__option_name}>RAM</p>
-                <div className={cl.scelet_about__option_content}>content</div>
+                <div className={cl.scelet_about__option_content}>
+                  {phone?.ram}
+                </div>
               </div>
             </div>
           </div>
@@ -242,6 +275,7 @@ export const ProductDetailsPage = () => {
               <CardItem />
               <CardItem />
               <CardItem /> */}
+              {/* <CardList phones={phonesListDiscount} title="Hot prices" /> */}
             </div>
           </div>
         </div>

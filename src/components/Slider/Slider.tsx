@@ -2,14 +2,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import './Slider.scss';
 import {
-  A11y, EffectFade, Navigation, Pagination, Scrollbar,
+  A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar,
 } from 'swiper';
 
 export const Slider = () => {
   return (
     <div className="main-banner">
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
+        // eslint-disable-next-line max-len
+        modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         effect="fade"
         slidesPerView={1}
         navigation
@@ -18,7 +23,7 @@ export const Slider = () => {
       >
         <SwiperSlide>
           <img
-            src="/product_catalog_fe/carousel/carousel_1.png"
+            src="/product_catalog_fe/carousel/carousel_1.jpg"
             alt="carousel"
             className="carousel-img"
           />
@@ -26,7 +31,7 @@ export const Slider = () => {
 
         <SwiperSlide>
           <img
-            src="/product_catalog_fe/carousel/carousel_007.png"
+            src="/product_catalog_fe/carousel/carousel_2.jpg"
             alt="carousel"
             className="carousel-img"
           />
@@ -34,7 +39,7 @@ export const Slider = () => {
 
         <SwiperSlide>
           <img
-            src="/product_catalog_fe/carousel/carousel_008.png"
+            src="/product_catalog_fe/carousel/carousel_3.jpg"
             alt="carousel"
             className="carousel-img"
           />

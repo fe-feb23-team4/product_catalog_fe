@@ -16,6 +16,7 @@
     &-container {
       max-width: 100%;
       overflow: visible;
+
     }
 
     &-button-next {
@@ -24,6 +25,12 @@
       top: 5.5%;
       right: 4px;
       width: 32px;
+      transition: filter 0.3s ease-in-out;
+      border-radius: 15px;
+
+      &:hover {
+        filter: brightness(130%);
+      }
 
       &::after {
         color: var(--white);
@@ -45,6 +52,12 @@
       top: 5.5%;
       left: 4px;
       width: 32px;
+      transition: filter 0.3s ease-in-out;
+      border-radius: 15px;
+
+      &:hover {
+        filter: brightness(130%);
+      }
 
       &::after {
         color: var(--white);
@@ -79,6 +92,7 @@
     object-fit: cover;
     object-position: center;
     margin: 0 auto;
+    border-radius: 15px;
 
     @include tablet {
       width: 100%;
@@ -87,7 +101,8 @@
 
     @include mobile {
       width: 100%;
-      object-position: 88%;
+      object-position: center;
+      border-radius: 0px;
     }
   }
 

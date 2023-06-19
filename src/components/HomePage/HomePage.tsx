@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import cl from './HomePage.module.scss';
 import { CardList } from '../CardList';
@@ -6,6 +7,7 @@ import { getPhonesDiscount, getPhonesNew } from '../../api/phones';
 import { ErrorMessage } from '../ErrorMessage';
 import { Loader } from '../Loader';
 import { Slider } from '../Slider';
+import { CategorySection } from '../CategorySection';
 
 export const HomePage = () => {
   const [error, setError] = useState(null);
@@ -80,6 +82,7 @@ export const HomePage = () => {
         </div>
       </div>
       <CardList phones={phonesListNew} title="Brand new models" />
+      <CategorySection />
       <CardList phones={phonesListDiscount} title="Hot prices" />
     </div>
   );

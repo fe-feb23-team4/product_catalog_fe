@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import cl from './ProductDetailsPage.module.scss';
-import { CardItem } from '../CardItem';
+// import { CardItem } from '../CardItem';
 
 export const ProductDetailsPage = () => {
   return (
@@ -274,7 +274,7 @@ export const ProductDetailsPage = () => {
             cl.grid__item__desktop_1_24)}
           >
             <div className={cl.scelet_slider__carts}>
-              <CardItem />
+              {/* <CardItem /> */}
               {/* <CardItem />
               <CardItem />
               <CardItem /> */}

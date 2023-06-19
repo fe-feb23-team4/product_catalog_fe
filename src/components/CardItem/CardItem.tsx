@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import cl from './CardItem.module.scss';
 import { AddToCardBtn } from '../AddToCardBtn';
 import { FavoriteBtn } from '../FavoriteBtn';
@@ -10,6 +11,12 @@ interface Props {
 export const CardItem: React.FC<Props> = ({ phone }) => {
   const [isAddToCard, setIsAddToCard] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const navigation = useNavigate();
+
+  const handleNavigate = () => {
+    navigation(`/phones/${phone.phoneId}`);
+  };
 
   const handleAction = useCallback(
     (action: string) => {
@@ -64,15 +71,26 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
   }, [phone.id]);
 
   return (
-    <div className={cl.cardItem}>
-      <div className={cl.cardItem__img}>
+    <div
+      className={cl.cardItem}
+    >
+      <div
+        className={cl.cardItem__img}
+        onClick={handleNavigate}
+      >
         <img
           src={`https://product-catalog-be-s8k7.onrender.com/${phone.image}`}
           alt={phone.image.split('/')[2]}
         />
       </div>
 
-      <h3 className={cl.cardItem__name}>{phone.name}</h3>
+      <div onClick={handleNavigate} className={cl.cardItem__nameContainer}>
+        <h3
+          className={cl.cardItem__name}
+        >
+          {phone.name}
+        </h3>
+      </div>
 
       <div className={cl.cardItem__price}>
         <ins className={cl.cardItem__priceDiscount}>
@@ -97,6 +115,7 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
           <p>{`${phone.ram.slice(0, -2)} ${phone.ram.slice(-2)}`}</p>
         </div>
       </div>
+
       <div className={cl.cardItem__btnContainer}>
         <AddToCardBtn
           isAddToCard={isAddToCard}

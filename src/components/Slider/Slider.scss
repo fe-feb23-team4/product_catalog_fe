@@ -1,4 +1,4 @@
-  @import '../../styles/utils/mixins.scss';
+@import '../../styles/utils/mixins.scss';
 .main-banner {
   margin-top: 56px;
 
@@ -9,7 +9,6 @@
   @include mobile {
     margin: 24px -16px 0 -16px;
   }
-
 
   .swiper {
     user-select: none;
@@ -26,11 +25,9 @@
       right: 4px;
       width: 32px;
 
-
       &::after {
         color: var(--white);
         font-size: 10px;
-
       }
 
       @include tablet {
@@ -75,8 +72,6 @@
     }
   }
 
-
-
   .carousel-img {
     display: block;
     width: 90.25%;
@@ -96,7 +91,10 @@
     }
   }
 
-  .swiper-pagination, .swiper-pagination-clickable, .swiper-pagination-bullets, .swiper-pagination-horizontal {
+  .swiper-pagination,
+  .swiper-pagination-clickable,
+  .swiper-pagination-bullets,
+  .swiper-pagination-horizontal {
     bottom: -29px !important;
   }
 }

@@ -69,7 +69,8 @@ export const HomePage = () => {
           Welcome to Nice Gadgets store!
         </h1>
 
-        <div className={`
+        <div
+          className={`
         ${cl.grid__item__desktop_1_24}
         ${cl.grid__item__tablet_1_12}
         ${cl.grid__item__mobile_1_4}

@@ -8,7 +8,7 @@ interface Props {
   phones: Phone[];
   title: string;
 }
-export const CardList:React.FC<Props> = (props) => {
+export const CardList: React.FC<Props> = (props) => {
   const [slideCounter, setSlideCounter] = useState(0);
 
   return (

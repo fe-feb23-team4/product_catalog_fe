@@ -71,13 +71,8 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
   }, [phone.id]);
 
   return (
-    <div
-      className={cl.cardItem}
-    >
-      <div
-        className={cl.cardItem__img}
-        onClick={handleNavigate}
-      >
+    <div className={cl.cardItem}>
+      <div className={cl.cardItem__img} onClick={handleNavigate}>
         <img
           src={`https://product-catalog-be-s8k7.onrender.com/${phone.image}`}
           alt={phone.image.split('/')[2]}
@@ -85,11 +80,7 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
       </div>
 
       <div onClick={handleNavigate} className={cl.cardItem__nameContainer}>
-        <h3
-          className={cl.cardItem__name}
-        >
-          {phone.name}
-        </h3>
+        <h3 className={cl.cardItem__name}>{phone.name}</h3>
       </div>
 
       <div className={cl.cardItem__price}>

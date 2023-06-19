@@ -2,10 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import './Slider.scss';
 import {
-  A11y, EffectFade,
-  Navigation,
-  Pagination,
-  Scrollbar,
+  A11y, EffectFade, Navigation, Pagination, Scrollbar,
 } from 'swiper';
 
 export const Slider = () => {

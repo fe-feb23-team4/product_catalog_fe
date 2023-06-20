@@ -12,11 +12,11 @@
 
   .swiper {
     user-select: none;
+    position: relative;
 
     &-container {
       max-width: 100%;
       overflow: visible;
-
     }
 
     &-button-next {
@@ -102,7 +102,9 @@
     @include mobile {
       width: 100%;
       object-position: center;
+      max-height: 350px;
       border-radius: 0px;
+      object-fit: contain;
     }
   }
 
@@ -111,5 +113,29 @@
   .swiper-pagination-bullets,
   .swiper-pagination-horizontal {
     bottom: -29px !important;
+
+    @media (max-width: 639px){
+      bottom: -29px !important;
+    }
+
+    @media (max-width: 550px) {
+      bottom: -10px !important;
+    }
+
+    @media (max-width: 500px) {
+      bottom: 0 !important;
+    }
+
+    @media (max-width: 450px) {
+      bottom: 12px !important;
+    }
+
+    @media (max-width: 400px) {
+      bottom: 29px !important;
+    }
+
+    @media (max-width: 350px) {
+      bottom: 40px !important;
+    }
   }
 }

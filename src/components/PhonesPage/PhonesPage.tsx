@@ -90,7 +90,7 @@ export const PhonesPage = () => {
           <Breadscrumbs category="Phones" />
         </div>
 
-        <h1 className={cl.title}>Mobile phones</h1>
+        <h1 className={cl.title} id="title_mobile_phones">Mobile phones</h1>
 
         <span className={cl.models_amount}>{`${phonesAmount} models`}</span>
 

@@ -57,7 +57,7 @@ export const getPhonesDiscount = () => {
 };
 
 export const getPhonesRecommended = (phoneId: string) => {
-  return axios.get<Phone[]>(`${API_URL}/products?id=${phoneId}/recommended`);
+  return axios.get<Phone[]>(`${API_URL}/products/${phoneId}/recommended`);
 };
 
 export const getPhoneById = (phoneId: string) => {

@@ -10,6 +10,7 @@ import { AccessoriesPage } from './components/AccessoriesPage';
 import { HomePage } from './components/HomePage';
 import { MyContextProvider } from './Context/MyContext';
 import { ProductPage } from './components/ProductPage';
+import { ProductDetailsPage } from './components/ProductDetailsPage';
 
 function App() {
   return (

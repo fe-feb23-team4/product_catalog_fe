@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
-import { MouseEvent, useEffect, useState } from 'react';
+import {
+  MouseEvent, useEffect, useRef, useState,
+} from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { Breadscrumbs } from '../BreadScrumbs/BreadScrumbs';
@@ -13,7 +15,7 @@ import { Loader } from '../Loader';
 export const PhonesPage = () => {
   const [phones, setPhones] = useState<Phone[] | []>([]);
   const [phonesAmount, setPhonesAmount] = useState(71);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isActivated, setIsActivated] = useState('');
   const page: string = searchParams.get('page') || '1';
@@ -59,7 +61,6 @@ export const PhonesPage = () => {
   }
 
   useEffect(() => {
-    setIsLoading(true);
     const setVisiblePhones = async () => {
       try {
         const normalizedPerPage = perPage === 'All' ? '71' : perPage;
@@ -76,12 +77,30 @@ export const PhonesPage = () => {
         setPhones(products);
       } catch (error) {
         throw new Error();
+      } finally {
+        setIsLoading(false);
       }
     };
 
     setVisiblePhones();
-    setIsLoading(false);
   }, [page, perPage, sortBy]);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: Event) => {
+    if (dropdownRef.current
+      && !dropdownRef.current.contains(event.target as Node)) {
+      setIsActivated('');
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className={cl.wrapper}>
@@ -94,7 +113,7 @@ export const PhonesPage = () => {
 
         <span className={cl.models_amount}>{`${phonesAmount} models`}</span>
 
-        <div className={cl.dropdown_wrapper}>
+        <div className={cl.dropdown_wrapper} ref={dropdownRef}>
           <DropdownCustom
             options={['Name', 'Newest', 'Price-Up', 'Price-Down']}
             handleSelect={onSortChange}

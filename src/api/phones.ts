@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Phone } from '../types/Phone';
 import { ProductResponse } from '../types/Response';
+import { PhoneProduct } from '../types/PhoneProduct';
 
 const API_URL = 'https://product-catalog-be-s8k7.onrender.com';
 
@@ -60,5 +61,5 @@ export const getPhonesRecommended = (phoneId: string) => {
 };
 
 export const getPhoneById = (phoneId: string) => {
-  return axios.get<Phone>(`${API_URL}/phones/${phoneId}`);
+  return axios.get<PhoneProduct>(`${API_URL}/phones/${phoneId}`);
 };

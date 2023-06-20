@@ -72,17 +72,19 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className={cl.cardItem}>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
-      <div className={cl.cardItem__img} onClick={handleNavigate}>
-        <img
-          src={`https://product-catalog-be-s8k7.onrender.com/${phone.image}`}
-          alt={phone.image.split('/')[2]}
-        />
-      </div>
+      <div className={cl.test}>
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
+        <div className={cl.cardItem__img} onClick={handleNavigate}>
+          <img
+            src={`https://product-catalog-be-s8k7.onrender.com/${phone.image}`}
+            alt={phone.image.split('/')[2]}
+          />
+        </div>
 
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
-      <div onClick={handleNavigate} className={cl.cardItem__nameContainer}>
-        <h3 className={cl.cardItem__name}>{phone.name}</h3>
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
+        <div onClick={handleNavigate} className={cl.cardItem__nameContainer}>
+          <h3 className={cl.cardItem__name}>{phone.name}</h3>
+        </div>
       </div>
 
       <div className={cl.cardItem__price}>

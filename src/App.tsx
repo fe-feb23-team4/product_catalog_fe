@@ -20,12 +20,14 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/phones" element={<PhonesPage />} />
+              <Route path="/phones">
+                <Route index element={<PhonesPage />} />
+                <Route path=":phoneId" element={<ProductPage />} />
+              </Route>
               <Route path="/tablets" element={<TabletsPage />} />
               <Route path="/accessories" element={<AccessoriesPage />} />
               <Route path="/favourite" element={<FavoritePage />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/test" element={<ProductPage />} />
             </Routes>
           </HashRouter>
         </div>

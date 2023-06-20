@@ -55,7 +55,7 @@ export const Pagination: FC<Props> = ({
         >
           <a
             className={cn(cl.link, cl.arrow)}
-            href="/"
+            href="#title_mobile_phones"
             aria-disabled={isFirstPage}
             onClick={(event) => {
               event.preventDefault();
@@ -79,7 +79,7 @@ export const Pagination: FC<Props> = ({
           >
             <a
               className={cl.link}
-              href="/"
+              href="#title_mobile_phones"
               onClick={(event) => {
                 event.preventDefault();
                 onPageChange(event);
@@ -97,7 +97,7 @@ export const Pagination: FC<Props> = ({
         >
           <a
             className={cn(cl.link, cl.arrow)}
-            href="/"
+            href="#title_mobile_phones"
             aria-disabled={isLastPage}
             onClick={(event) => {
               event.preventDefault();

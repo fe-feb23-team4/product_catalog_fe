@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import cl from './Footer.module.scss';
 import logo from './footer_logo.svg';
 import arrow from './arrow.svg';
@@ -10,19 +11,37 @@ export const Footer = () => {
   return (
     <footer className={cl.footer}>
       <div className={cl.footer__container}>
-        <a href="/home" className={cl.footer__image}>
-          <img src={logo} alt="Footer_logo" />
-        </a>
+        <Link className={cl.footer__image} to="/">
+          <img src={logo} alt="logo_icon" />
+        </Link>
+
         <div className={cl.footer__navlist}>
-          <a href="/" className={cl.footer__navItem}>
-            Github
-          </a>
-          <a href="/" className={cl.footer__navItem}>
-            Contacts
-          </a>
-          <a href="/" className={cl.footer__navItem}>
-            rights
-          </a>
+          <Link
+            className={cl.footer__navItem}
+            to="https://github.com/fe-feb23-team4/product_catalog_fe"
+          >
+
+            <p>Github</p>
+
+          </Link>
+
+          <Link
+            className={cl.footer__navItem}
+            to="/"
+          >
+
+            <p>Contacts</p>
+
+          </Link>
+
+          <Link
+            className={cl.footer__navItem}
+            to="/"
+          >
+
+            <p>Rights</p>
+
+          </Link>
         </div>
         <div className={cl.footer__button__box}>
           <p className={cl.footer__button__box__text}>Back to top</p>

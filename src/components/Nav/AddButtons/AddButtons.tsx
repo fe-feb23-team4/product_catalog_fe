@@ -8,6 +8,7 @@ import cart from '../../../assets/Cart.svg';
 
 export const AddButtons = () => {
   const [favoriteItems, setFavoriteItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const getFavData = () => {
@@ -21,6 +22,24 @@ export const AddButtons = () => {
     };
 
     const intervalId = setInterval(getFavData);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  useEffect(() => {
+    const getCartData = () => {
+      const storedItems = localStorage.getItem('AddedToCard');
+
+      if (storedItems) {
+        const parsedItems = JSON.parse(storedItems);
+
+        setCartItems(parsedItems);
+      }
+    };
+
+    const intervalId = setInterval(getCartData);
 
     return () => {
       clearInterval(intervalId);
@@ -45,6 +64,9 @@ export const AddButtons = () => {
         className={({ isActive }) => cn(cl.button, { [cl.active]: isActive })}
       >
         <img src={cart} alt="cart_icon" />
+        {cartItems.length !== 0 && (
+          <div className={cl.count__button}>{cartItems.length}</div>
+        )}
       </NavLink>
     </div>
   );

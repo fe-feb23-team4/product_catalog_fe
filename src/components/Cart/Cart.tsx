@@ -1,11 +1,17 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable max-len */
 /* eslint-disable no-confusing-arrow */
 import React, { useEffect, useState } from 'react';
+import cn from 'classnames';
+import { useNavigate } from 'react-router';
 import cl from './Cart.module.scss';
 import arrowLeft from '../../assets/ArrowLeft.svg';
 import close from '../../assets/Close.svg';
 import { Modal } from '../Modal';
 import { Phone, PhoneWithQuantity } from '../../types/Phone';
 import { Loader } from '../Loader';
+import { getPhoneById, getPhones } from '../../api/phones';
 
 export const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -13,6 +19,23 @@ export const Cart = () => {
   const [isCartEmpty, setIsCartEmpty] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigation = useNavigate();
+
+  const handleNavigate = async (phoneId: number) => {
+    const allPhones = await getPhones('1', '71', 'Name', 'phones');
+    const { products } = allPhones.data;
+    const foundProductId = products.find((product) => String(product.id) === String(phoneId))?.itemId;
+
+    if (!foundProductId) {
+      return;
+    }
+
+    const foundPhone = (await getPhoneById(foundProductId)).data;
+    const foundPhoneId = foundPhone.id;
+
+    navigation(`/phones/${foundPhoneId}`);
+  };
 
   const BASE_URL = 'https://product-catalog-be-s8k7.onrender.com';
 
@@ -91,11 +114,17 @@ export const Cart = () => {
                 <ul className={cl.cart__list}>
                   {cart.map((item) => (
                     <li className={cl.cart__item} key={item.id}>
-                      <div className={cl.cart__item_info}>
+                      <div
+                        className={cl.cart__item_info}
+                        onClick={() => handleNavigate(item.id)}
+                      >
                         <button
                           type="button"
                           className={cl.remove_button}
-                          onClick={() => removeFromCart(item)}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            removeFromCart(item);
+                          }}
                         >
                           <img src={close} alt="remove" className={cl.close} />
                         </button>
@@ -114,18 +143,20 @@ export const Cart = () => {
                       <div className={cl.count_control}>
                         <button
                           type="button"
-                          className={`${cl.count_control__button} ${cl.decrement}`}
+                          className={cn(
+                            cl.count_control__button,
+                            cl.decrement,
+                            { [cl.decrement_disabled]: item.quantity === 1 },
+                          )}
                           onClick={() => {
+                            if (item.quantity === 1) {
+                              return;
+                            }
+
                             const updatedCart = cart
                               .map((good) => good.id === item.id
                                 ? { ...good, quantity: good.quantity - 1 }
                                 : good);
-
-                            if (item.quantity === 1) {
-                              removeFromCart(item);
-
-                              return;
-                            }
 
                             setCart(updatedCart);
                             setTotalPrice(totalPrice - item.price);
@@ -189,7 +220,7 @@ export const Cart = () => {
                       setTimeout(() => {
                         setIsModalOpen(true);
                         setIsLoading(false);
-                      }, 1500);
+                      }, 500);
                     }}
                   >
                     Checkout
@@ -202,7 +233,15 @@ export const Cart = () => {
       </div>
 
       {isModalOpen && (
-        <Modal isOpen onClose={() => setIsModalOpen(false)} data={cart} />
+        <Modal
+          isOpen
+          onClose={() => {
+            setIsModalOpen(false);
+            localStorage.setItem('AddedToCard', JSON.stringify([]));
+            setIsCartEmpty(true);
+          }}
+          data={cart}
+        />
       )}
     </div>
   );

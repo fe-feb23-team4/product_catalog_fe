@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import cl from './CategorySection.module.scss';
 import phonesImage from '../../assets/images/category-phones.png';
-import tabletsImage from '../../assets/images/category-tablets.jpg';
-import accessoriesImage from '../../assets/images/category-accessories.jpg';
+import tabletsImage from '../../assets/images/category-tablets.png';
+import accessoriesImage from '../../assets/images/category-accessories.png';
 
 export const CategorySection = () => {
   return (

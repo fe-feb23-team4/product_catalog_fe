@@ -14,7 +14,7 @@
   font-family: 'Mont-Semibold';
   font-size: 12px;
   line-height: 120%;
-  color: var(--surface-two);
+  color: var(--secondary);
 }
 
 .list {
@@ -26,6 +26,7 @@
   border: 1px var(--surface-two) solid;
   background-color: var(--black);
   transition: all 0.3s;
+  z-index: 1;
 }
 
 .list_item {

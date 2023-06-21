@@ -13,6 +13,8 @@ interface MyContextType {
   setPhonesListNew: Dispatch<SetStateAction<Phone[]>>;
   phonesListDiscount: Phone[];
   setPhonesListDiscount: Dispatch<SetStateAction<Phone[]>>;
+  phonesListRecommended: Phone[];
+  setPhonesListRecommended: Dispatch<SetStateAction<Phone[]>>;
 }
 
 const MyContext = createContext<MyContextType>({
@@ -20,12 +22,17 @@ const MyContext = createContext<MyContextType>({
   setPhonesListNew: () => {},
   phonesListDiscount: [],
   setPhonesListDiscount: () => {},
+  phonesListRecommended: [],
+  setPhonesListRecommended: () => {},
 });
 
 export const useMyContext = () => useContext(MyContext);
 export const MyContextProvider: React.FC<PropsWithChildren> = (props) => {
   const [phonesListNew, setPhonesListNew] = useState<Phone[]>([]);
   const [phonesListDiscount, setPhonesListDiscount] = useState<Phone[]>([]);
+  const [
+    phonesListRecommended, setPhonesListRecommended,
+  ] = useState<Phone[]>([]);
 
   return (
     <MyContext.Provider
@@ -34,6 +41,8 @@ export const MyContextProvider: React.FC<PropsWithChildren> = (props) => {
         setPhonesListNew,
         phonesListDiscount,
         setPhonesListDiscount,
+        phonesListRecommended,
+        setPhonesListRecommended,
       }}
     >
       {props.children}

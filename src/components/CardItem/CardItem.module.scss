@@ -1,28 +1,20 @@
 @import '../../styles/utils/mixins';
 
-.test {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-}
-
 .cardItem {
   background: var(--surface-one);
   max-height: 512px;
   max-width: 272px;
+  height: 512px;
   padding: 32px;
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.6s ease-in-out;
   border-radius: 15px;
-
-  @include tablet {
-    max-width: 237px;
-  }
+  cursor: pointer;
 
   @include mobile {
     max-width: 287px;
+    height: 440px;
   }
 
   @include desktop {
@@ -37,6 +29,13 @@
     &:hover &__img img {
       transform: scale(1.05);
     }
+  }
+
+  &__route {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
   }
 
   &__img {

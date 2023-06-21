@@ -36,29 +36,27 @@ export const DropdownCustom: FC<Props> = ({
           {currentOption}
           <img src={isActive ? arrowDown : arrowUp} alt="selection-arrow" />
         </button>
-        {isActive && (
-          <ul
-            className={cn(cl.list, {
-              [cl.hidden]: !isActive,
-            })}
-          >
-            {options.map((option) => (
-              <li className={cl.list_item} key={option}>
-                <a
-                  className={cl.link}
-                  href="/"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    handleClick(!isActive);
-                    handleSelect(event);
-                  }}
-                >
-                  {option}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul
+          className={cn(cl.list, {
+            [cl.hidden]: !isActive,
+          })}
+        >
+          {options.map((option) => (
+            <li className={cl.list_item} key={option}>
+              <a
+                className={cl.link}
+                href="/"
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleClick(!isActive);
+                  handleSelect(event);
+                }}
+              >
+                {option}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

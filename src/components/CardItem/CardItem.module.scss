@@ -8,7 +8,7 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.6s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
   border-radius: 15px;
   cursor: pointer;
 
@@ -19,9 +19,9 @@
 
   @include desktop {
     &:hover {
-      -webkit-box-shadow: inset 0px -1px 31px -3px rgba(255, 163, 91, 1);
-      -moz-box-shadow: inset 0px -1px 31px -3px rgba(255, 163, 91, 1);
-      box-shadow: inset 0px -1px 31px -3px rgba(255, 163, 91, 1);
+      -webkit-box-shadow: inset 0px -1px 30px -3px var(--accent);
+      -moz-box-shadow: inset 0px -1px 30px -3px var(--accent);
+      box-shadow: inset 0px -1px 30px -3px var(--accent);
     }
   }
 

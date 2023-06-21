@@ -38,6 +38,7 @@ export const PhonesPage = () => {
     event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>,
   ) {
     event.preventDefault();
+    window.scrollTo(0, 0);
     updateSearchParams({ page: event.currentTarget.innerHTML || null });
   }
 

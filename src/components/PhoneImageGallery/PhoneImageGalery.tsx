@@ -31,13 +31,13 @@ export const PhoneImageGalery:FC<Props> = ({ images }) => {
     )}
     >
       <div className={cn(
-        cl.images__current,
-        cl.grid__item__desktop_3_11,
+        cl.images__current__container,
       )}
       >
         <img
           src={`${ImgUrl}${mainImage}`}
           alt="current"
+          className={cl.images__current_image}
         />
       </div>
 
@@ -56,7 +56,10 @@ export const PhoneImageGalery:FC<Props> = ({ images }) => {
               <img
                 src={`${ImgUrl}${image}`}
                 alt="phone_image"
-                className={cl.images__img}
+                className={cn(
+                  cl.images__img,
+                  { [cl.images__img__active]: mainImage === image },
+                )}
               />
             </div>
           </div>

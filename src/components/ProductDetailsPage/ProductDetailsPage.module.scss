@@ -3,29 +3,29 @@
 @import "../../styles/utils/grid.scss";
 
 .product_page {
-  width: 100%;
   min-height: 100vh;
+  margin: 0 24px;
   color: var(--white);
 
   &__wrapper {
-    padding: 25px 16px;
-    margin: auto;
-    max-width: 1200px;
-    gap: 16px;
+    margin: 0 auto 64px;
+    max-width: 1136px;
   }
 
   &__title {
     font-size: 22px;
-    font-weight: 800;
-    margin-bottom: 32px;
+    font-family: 'Mont-Bold';
+    margin-top: 16px;
   }
 
   &__breadcrumbs {
     display: flex;
     align-items: center;
-    gap: 8px;
+    margin-top: 24px;
+    gap: 13px;
     font-size: 12px;
-    font-weight: 700;
+    line-height: 15px;
+    font-family: 'Mont-Semibold';
     color: inherit;
 
     &__item {
@@ -51,9 +51,10 @@
     justify-content: flex-start;
     align-items: center;
     font-size: 12px;
-    font-weight: 700;
+    line-height: 15px;
+    font-family: 'Mont-Semibold';
     color: var(--gray);
-    margin: 25px 0 16px;
+    margin: 40px 0 0;
     transition: color 0.3s ease-in-out;
     padding: 0;
 
@@ -67,33 +68,42 @@
   }
 
   &__content {
-    // border: 2px solid red;
+    margin-top: 40px;
 
     &__params {
+
       .product {
         &__text {
           display: flex;
           font-size: 12px;
-          font-weight: 700;
+          font-family: 'Mont-Semibold';
+          line-height: 15px;
           color: var(--secondary);
-          margin-bottom: 8px;
         }
 
-        &__id {
-          margin-left: auto;
+        &__select_capacity {
+          display: flex;
+          margin-top: 24px;
         }
 
         &__colors {
           display: flex;
           gap: 8px;
+          margin-top: 8px;
 
           &__color {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             border: 1px solid var(--secondary);
-            background-color: pink;
             position: relative;
+            transition: all 0.3s;
+
+            @include desktop {
+              &:hover {
+                transform: scale(115%);
+              }
+            }
 
             &::before {
               content: '';
@@ -111,17 +121,29 @@
         &__capacities {
           display: flex;
           gap: 8px;
+          margin-top: 8px;
 
           &__capacity {
-            border: 1px solid var(--icons);
-            color: var(--white);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 7px 4px;
+            &_button {
+              border: 1px solid var(--icons);
+              color: var(--white);
+              font-size: 14px;
+              line-height: 21px;
+              font-family: 'Mont-Regular';
+              padding: 7px 8px 4px;
+              transition: all 0.3s;
 
-            &:first-child {
-              background-color: var(--white);
-              color: var(--black);
+              &__active {
+                background-color: var(--white);
+                color: var(--black);
+              }
+
+              @include desktop {
+                &:hover {
+                  background-color: var(--white);
+                  color: var(--black);
+                }
+              }
             }
           } 
         }
@@ -130,15 +152,20 @@
           display: flex;
           gap: 8px;
           align-items: center;
+          margin-top: 40px;
 
           &__new {
             font-size: 32px;
-            font-weight: 800;
+            line-height: 41px;
+            font-family: 'Mont-Bold';
+            letter-spacing: -0.01em;
+            color: var(--white);
           }
 
           &__old {
             font-size: 22px;
-            font-weight: 600;
+            line-height: 28px;
+            font-family: 'Mont-Regular';
             color: var(--secondary);
             text-decoration-line: line-through;
           }
@@ -147,7 +174,7 @@
         &__purchase_buttons {
           width: 100%;
           height: 48px;
-          margin-top: 16px;
+          margin-top: 24px;
           display: flex;
           gap: 8px;
 
@@ -156,7 +183,8 @@
             width: 100%;
             background-color: var(--accent);
             font-size: 14px;
-            font-weight: 700;
+            line-height: 21px;
+            font-family: 'Mont-Semibold';
           }
 
           &__to_favourite {
@@ -168,40 +196,98 @@
         }
 
         &__properties {
-          margin: 32px 0 56px;
+          margin-top: 32px;
 
           &__property {
             display: flex;
             justify-content: space-between;
-            font-size: 12px;
-            font-weight: 700;
+
             margin-bottom: 8px;
 
             &_name {
               color: var(--secondary);
+              font-size: 12px;
+              line-height: 15px;
+              font-family: 'Mont-Semibold';
               
             }
 
             &_value {
               color: var(--white);
+              font-family: 'Mont-Semibold';
+              font-size: 12px;
+              line-height: 15px;
             }
           }
         }
-
-        &__h3_title {
-          font-size: 20px;
-          font-weight: 700;
-        }
-
-        &__h4_title {
-          margin: 32px 0 16px;
-        }
-
-        &__paragraph {
-          color: #89939A;
-        }
       }
     }
+  }
+}
+
+.about_section {
+  margin-top: 80px;
+
+  &__common_title {
+    font-size: 22px;
+    font-family: 'Mont-Bold';
+    line-height: 31px;
+    color: var(--white);
+  }
+
+  &__subtitle {
+    margin-top: 32px;
+    font-family: 'Mont-Semibold';
+    color: var(--white);
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  &__description {
+    color: var(--secondary);
+    font-family: 'Mont-Regular';
+    line-height: 21px;
+    margin-top: 16px;
+    text-align: justify;
+  }
+}
+
+.tech_specs_section {
+  margin: 80px 0 56px;
+
+  &__title {
+    font-size: 22px;
+    line-height: 31px;
+    font-family: 'Mont-Bold';
+    color: var(--white);
+  }
+
+  &__container {
+    margin-top: 25px;
+  }
+
+  &__properties {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__property {
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Mont-Regular';
+    color: var(--secondary);
+  }
+
+  &__value {
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Mont-Regular';
+    color: var(--white);
   }
 }
 
@@ -209,5 +295,5 @@
   width: 100%;
   height: 1px;
   background-color: var(--elemets);
-  margin: 16px 0;
+  margin-top: 25px;
 }

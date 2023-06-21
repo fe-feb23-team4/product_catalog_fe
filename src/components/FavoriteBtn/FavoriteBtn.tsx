@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import cl from './FavoriteBtn.module.scss';
 
 interface Props {

@@ -19,6 +19,7 @@ export const Footer = () => {
           <Link
             className={cl.footer__navItem}
             to="https://github.com/fe-feb23-team4/product_catalog_fe"
+            target="_blank"
           >
 
             <p>Github</p>

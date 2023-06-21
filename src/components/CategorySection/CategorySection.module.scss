@@ -1,4 +1,5 @@
 @import '../../styles/variables/variables.scss';
+@import '../../styles/utils/mixins.scss';
 
 .category_section {
   width: 100%;
@@ -7,18 +8,53 @@
   &__title {
     font-size: 32px;
     font-weight: 800;
-    margin: 80px 0 24px;
+    margin: 56px 0 24px;
   }
 
   &__grid {
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 
-    &__item {
-      border: 2px solid gold;
-      img {
+    .image_container {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      overflow: hidden;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+
+    &_item {
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--white);
+     
+      &:hover img {
+        transform: scale(1.1);
+      }
+      
+      &__image {
         width: 100%;
+        transition: 0.3s;
+      }
+
+      &__title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 24px 0 4px;
+      }
+
+      &__count {
+        color: var(--secondary);
+        font-size: 14px;
+        font-weight: 600;
+
+        @include mobile {
+          margin-bottom: 32px;
+        }
       }
     }
   }

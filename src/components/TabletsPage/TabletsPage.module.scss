@@ -42,3 +42,23 @@
   font-size: 14px;
   line-height: 21px;
 }
+
+.no_products_message {
+  max-width: 1136px;
+  margin: 40px 0 0;
+  text-align: start;
+  font-family: 'Mont', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 56px;
+
+  letter-spacing: -0.01em;
+
+  color: #f1f2f9;
+
+  @include mobile {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}

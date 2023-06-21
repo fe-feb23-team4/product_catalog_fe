@@ -9,7 +9,7 @@ import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
 import { HomePage } from './components/HomePage';
 import { MyContextProvider } from './Context/MyContext';
-import { ProductPage } from './components/ProductPage';
+import { ProductDetailsPage } from './components/ProductDetailsPage';
 
 function App() {
   return (
@@ -20,12 +20,14 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/phones" element={<PhonesPage />} />
+              <Route path="/phones">
+                <Route index element={<PhonesPage />} />
+                <Route path=":phoneId" element={<ProductDetailsPage />} />
+              </Route>
               <Route path="/tablets" element={<TabletsPage />} />
               <Route path="/accessories" element={<AccessoriesPage />} />
               <Route path="/favourite" element={<FavoritePage />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/test" element={<ProductPage />} />
             </Routes>
           </HashRouter>
         </div>

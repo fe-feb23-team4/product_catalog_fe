@@ -1,13 +1,47 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable max-len */
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import cl from './ProductDetailsPage.module.scss';
-import { getPhoneById } from '../../api/phones';
+import arrowRight from '../../assets/ArrowRight.svg';
+import arrowLeft from '../../assets/ArrowLeft.svg';
+import home from '../../assets/Home.svg';
+import heart from '../../assets/Heart.svg';
+import { getPhonesRecommended, getPhoneById } from '../../api/phones';
+import { useMyContext } from '../../Context/MyContext';
 import { PhoneProduct } from '../../types/PhoneProduct';
+import { CardList } from '../CardList';
+import { PhoneImageGalery } from '../PhoneImageGallery';
 
 export const ProductDetailsPage = () => {
+  const {
+    phonesListRecommended,
+    setPhonesListRecommended,
+  } = useMyContext();
+
   const [phone, setPhone] = useState<PhoneProduct | null>(null);
   const { phoneId } = useParams();
+
+  const navigation = useNavigate();
+
+  useEffect(() => {
+    const fetchedPhonesRecommended = async () => {
+      try {
+        if (!phoneId) {
+          return;
+        }
+
+        const fetchedPhoneRecomend = await getPhonesRecommended(phoneId);
+
+        setPhonesListRecommended(fetchedPhoneRecomend.data);
+      } catch {
+        throw new Error('Failed to fetch data');
+      }
+    };
+
+    fetchedPhonesRecommended();
+  }, [phoneId]);
 
   useEffect(() => {
     const fetchPhoneAbout = async () => {
@@ -15,271 +49,200 @@ export const ProductDetailsPage = () => {
         const fetchedPhoneAbout = await getPhoneById(phoneId || '');
 
         setPhone(fetchedPhoneAbout.data);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error);
+      } catch {
+        throw new Error('Failes to fetch');
       }
     };
 
     fetchPhoneAbout();
   }, [phoneId]);
 
-  // eslint-disable-next-line no-console
-  console.log(phone);
+  const handleNavigateColor = (color:string) => {
+    navigation(`/phones/${phone?.namespaceId}-${phone?.capacity}-${color}`);
+  };
+
+  const handleNavigateCapacity = (capacity:string) => {
+    navigation(`/phones/${phone?.namespaceId}-${capacity.toLowerCase()}-${phone?.color}`);
+  };
 
   return (
-    <div className={cl.container}>
-      <div className={cl.grid}>
-        <div
-          className={cn(
-            cl.grid__item,
-            cl.grid__item__mobile_1_4,
-            cl.grid__item__tablet_1_12,
-            cl.grid__item__desktop_1_24,
-          )}
+    <div className={cl.product_page}>
+      <div className={cl.product_page__wrapper}>
+        <div className={cl.product_page__breadcrumbs}>
+          <div className={cl.product_page__breadcrumbs__item}>
+            <img src={home} alt="home" />
+          </div>
+
+          <img src={arrowRight} alt="arrow" />
+
+          <div className={cl.product_page__breadcrumbs__item}>
+            <Link to="/phones">Phones</Link>
+          </div>
+
+          <img src={arrowRight} alt="arrow" />
+
+          <div className={cl.product_page__breadcrumbs__item}>
+            <span>{phone?.name}</span>
+          </div>
+
+        </div>
+
+        <button
+          className={cl.product_page__back_btn}
+          type="button"
+          onClick={() => {
+            window.history.back();
+          }}
         >
-          <div className={cl.scelet_line} />
-          <div className={cl.scelet_title} />
-        </div>
-      </div>
+          <img src={arrowLeft} alt="arrow" />
+          Back
+        </button>
 
-      <div className={cl.scelet_settings}>
-        <div className={cl.grid}>
-          <div
-            className={cn(
-              cl.grid__item,
-              cl.grid__item__mobile_1_4,
-              cl.grid__item__tablet_1_12,
-              cl.grid__item__desktop_1_24,
-            )}
-          >
-            <div className={cl.scelet_settings__container}>
-              <div className={cl.scelet_settings__container_colors}>
-                <p className={cl.scelet_settings__title}>Available colors</p>
-                <p
-                  className={cn(
-                    cl.scelet_settings__title,
-                    cl.scelet_settings__title__id,
-                  )}
+        <h1 className={cl.product_page__title}>
+          {phone?.name}
+        </h1>
+
+        <div className={cl.product_page__content}>
+          <PhoneImageGalery images={phone?.images} />
+
+          <div className={cl.product_page__content__params}>
+            <div className={cl.product_page__content__params}>
+              <div className={cl.product__text}>
+                <div>Available colors</div>
+              </div>
+
+              <div className={cl.product__colors}>
+                {phone?.colorsAvailable.map((color) => (
+                  <Link
+                    to={`/phones/${phone.namespaceId}-${phone.capacity.toLowerCase()}-${color}`}
+                    key={color}
+                  >
+                    <div className={cl.product__colors__color}>
+                      <button
+                        type="button"
+                        className={cn(
+                          cl.product__colors__color_button,
+                        )}
+                        onClick={() => handleNavigateColor(color)}
+                      >
+                        {color}
+                      </button>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              <div className={cl.separate__line}> </div>
+
+              <div className={cl.product__text}>Select capacity</div>
+
+              <div className={cl.product__capacities}>
+                {phone?.capacityAvailable.map((capacity) => (
+                  <Link
+                    to={`/phones/${phone.namespaceId}-${capacity.toLowerCase()}-${phone.color}`}
+                    key={capacity}
+                  >
+                    <div className={cl.product__capacities__capacity}>
+                      <button
+                        type="button"
+                        className={cl.product__capacities__capacity_button}
+                        onClick={() => (
+                          handleNavigateCapacity(capacity)
+                        )}
+                      >
+                        {capacity}
+                      </button>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              <div className={cl.separate__line}> </div>
+
+              <div className={cl.product__price}>
+                <h2 className={cl.product__price__new}>{`${phone?.priceDiscount}$`}</h2>
+                <div className={cl.product__price__old}>{`${phone?.priceRegular}$`}</div>
+              </div>
+
+              <div className={cl.product__purchase_buttons}>
+                <button
+                  type="button"
+                  className={cl.product__purchase_buttons__to_cart}
                 >
-                  ID:
-                  <div className={cl.scelet_settings__title_div} />
-                </p>
+                  Add to cart
+                </button>
+                <button
+                  type="button"
+                  className={cl.product__purchase_buttons__to_favourite}
+                >
+                  <img src={heart} alt="to favourite" />
+                </button>
               </div>
 
-              <div className={cl.scelet_settings__colors}>
-                <div className={cl.scelet_settings__button_color}>
-                  <div
-                    className={cn(
-                      cl.scelet_settings__color,
-                      cl.scelet_settings__color__none,
-                    )}
-                  />
+              <div className={cl.product__properties}>
+                <div className={cl.product__properties__property}>
+                  <div className={cl.product__properties__property_name}>
+                    Screen
+                  </div>
+                  <div className={cl.product__properties__property_value}>
+                    {phone?.screen}
+                  </div>
                 </div>
 
-                <div className={cl.scelet_settings__button_color}>
-                  <div
-                    className={cn(
-                      cl.scelet_settings__color,
-                      cl.scelet_settings__color__none,
-                    )}
-                  />
+                <div className={cl.product__properties__property}>
+                  <div className={cl.product__properties__property_name}>
+                    Resolution
+                  </div>
+                  <div className={cl.product__properties__property_value}>
+                    {phone?.resolution}
+                  </div>
                 </div>
 
-                <div className={cl.scelet_settings__button_color}>
-                  <div
-                    className={cn(
-                      cl.scelet_settings__color,
-                      cl.scelet_settings__color__none,
-                    )}
-                  />
+                <div className={cl.product__properties__property}>
+                  <div className={cl.product__properties__property_name}>
+                    Processor
+                  </div>
+                  <div className={cl.product__properties__property_value}>
+                    {phone?.processor}
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <p className={cl.scelet_settings__title}>Select capacity</p>
-
-            <div className={cl.scelet_settings__capacities}>
-              <div className={cl.scelet_settings__button_capacity}>
-                <div className={cl.scelet_settings__button_capacity_in} />
-              </div>
-              <div className={cl.scelet_settings__button_capacity}>
-                <div className={cl.scelet_settings__button_capacity_in} />
-              </div>
-              <div className={cl.scelet_settings__button_capacity}>
-                <div className={cl.scelet_settings__button_capacity_in} />
-              </div>
-            </div>
-
-            <div className={cl.scelet_settings__add_header}>
-              <div className={cl.scelet_settings__add_current_price}>
-                &#36;0000
-              </div>
-              <div className={cl.scelet_settings__add_prev_price}>
-                &#36;0000
-              </div>
-            </div>
-
-            <div className={cl.scelet_settings__add_buttons}>
-              <div />
-
-              <div />
-            </div>
-
-            <div className={cl.scelet_settings__buttons}>
-              <div className={cl.scelet_settings__cart_button} />
-              <div className={cl.scelet_settings__fav_button} />
-            </div>
-
-            <div className={cl.scelet_settings__add_tablet}>
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>screen</p>
-                <div className={cl.scelet_about__option_content}>
-                  {phone?.screen}
+                <div className={cl.product__properties__property}>
+                  <div className={cl.product__properties__property_name}>
+                    RAM
+                  </div>
+                  <div className={cl.product__properties__property_value}>
+                    {phone?.ram}
+                  </div>
                 </div>
               </div>
 
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>resolution</p>
-                <div className={cl.scelet_about__option_content}>
-                  {phone?.resolution}
-                </div>
-              </div>
+              <h3 className={cl.product__h3_title}>About</h3>
 
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>processor</p>
-                <div className={cl.scelet_about__option_content}>
-                  {phone?.processor}
-                </div>
-              </div>
+              <div className={cl.separate__line}> </div>
 
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>RAM</p>
-                <div className={cl.scelet_about__option_content}>
-                  {phone?.ram}
-                </div>
-              </div>
+              <h4 className={cl.product__h4_title}>{phone?.description[0].title}</h4>
+
+              <p className={cl.product__paragraph}>
+                {phone?.description[0].text}
+              </p>
+
+              <h4 className={cl.product__h4_title}>{phone?.description[1].title}</h4>
+
+              <p className={cl.product__paragraph}>
+                {phone?.description[1].text}
+              </p>
+
+              <h4 className={cl.product__h4_title}>{phone?.description[2].title}</h4>
+
+              <p className={cl.product__paragraph}>
+                {phone?.description[2].text}
+              </p>
             </div>
           </div>
         </div>
+        <CardList phones={phonesListRecommended} title="You may also like" />
       </div>
-
-      <section className={cl.scelet_about}>
-        <div className={cl.grid}>
-          <div
-            className={cn(
-              cl.grid__item,
-              cl.grid__item__mobile_1_4,
-              cl.grid__item__tablet_1_12,
-              cl.grid__item__desktop_1_12,
-            )}
-          >
-            <div>
-              <h2 className={cl.scelet_about__title}>About</h2>
-
-              <div className={cl.scelet_about__content}>
-                <div className={cl.scelet_about__container}>
-                  <div className={cl.scelet_about__small_title}>content</div>
-
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-
-                  <h3 className={cl.scelet_about__small_title}>content</h3>
-
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                  <div className={cl.scelet_about__text} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className={cn(
-              cl.grid__item,
-              cl.grid__item__mobile_1_4,
-              cl.grid__item__tablet_1_12,
-              cl.grid__item__desktop_14_24,
-            )}
-          >
-            <h2 className={cl.scelet_about__title}>Tech specs</h2>
-
-            <div className={cl.scelet_about__content}>
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>screen</p>
-                <div className={cl.scelet_about__option_content}>content</div>
-              </div>
-
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>resolution</p>
-                <div className={cl.scelet_about__option_content}>content</div>
-              </div>
-
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>processor</p>
-                <p className={cl.scelet_about__option_content}>content</p>
-              </div>
-
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>RAM</p>
-                <div className={cl.scelet_about__option_content}>content</div>
-              </div>
-
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>Built in memory</p>
-                <div className={cl.scelet_about__option_content}>content</div>
-              </div>
-
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>camera</p>
-                <div className={cl.scelet_about__option_content}>content</div>
-              </div>
-
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>zoom</p>
-                <div className={cl.scelet_about__option_content}>content</div>
-              </div>
-
-              <div className={cl.scelet_about__option}>
-                <p className={cl.scelet_about__option_name}>cell</p>
-                <div className={cl.scelet_about__option_content}>content</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={cl.scelet_slider}>
-        <div className={cl.grid}>
-          <div
-            className={cn(
-              cl.grid__item,
-              cl.grid__item__mobile_1_4,
-              cl.grid__item__tablet_1_12,
-              cl.grid__item__desktop_1_24,
-            )}
-          >
-            <div className={cl.scelet_slider__carts}>
-              {/* <CardItem />
-              <CardItem />
-              <CardItem />
-              <CardItem /> */}
-              {/* <CardList phones={phonesListDiscount} title="Hot prices" /> */}
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

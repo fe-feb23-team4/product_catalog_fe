@@ -29,6 +29,7 @@ export const Footer = () => {
           <Link
             className={cl.footer__navItem}
             to="/"
+            onClick={handleScrollToTop}
           >
 
             <p>Contacts</p>
@@ -38,6 +39,7 @@ export const Footer = () => {
           <Link
             className={cl.footer__navItem}
             to="/"
+            onClick={handleScrollToTop}
           >
 
             <p>Rights</p>

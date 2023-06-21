@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import cl from './ProductPage.module.scss';
+import cl from './ProductDetailsPage.module.scss';
 import arrowRight from '../../assets/ArrowRight.svg';
 import arrowLeft from '../../assets/ArrowLeft.svg';
 import home from '../../assets/Home.svg';
@@ -14,7 +14,7 @@ import { PhoneProduct } from '../../types/PhoneProduct';
 import { CardList } from '../CardList';
 import { PhoneImageGalery } from '../PhoneImageGallery';
 
-export const ProductPage = () => {
+export const ProductDetailsPage = () => {
   const {
     phonesListRecommended,
     setPhonesListRecommended,

@@ -9,7 +9,7 @@ import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
 import { HomePage } from './components/HomePage';
 import { MyContextProvider } from './Context/MyContext';
-import { ProductPage } from './components/ProductPage';
+import { ProductDetailsPage } from './components/ProductDetailsPage';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/phones">
                 <Route index element={<PhonesPage />} />
-                <Route path=":phoneId" element={<ProductPage />} />
+                <Route path=":phoneId" element={<ProductDetailsPage />} />
               </Route>
               <Route path="/tablets" element={<TabletsPage />} />
               <Route path="/accessories" element={<AccessoriesPage />} />

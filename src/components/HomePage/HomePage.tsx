@@ -55,10 +55,6 @@ export const HomePage = () => {
     return <ErrorMessage>Error while getting data from server...</ErrorMessage>;
   }
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   return (
     <div className={`${cl.container} ${cl.home}`}>
       <div className={cl.grid}>
@@ -81,9 +77,13 @@ export const HomePage = () => {
           <Slider />
         </div>
       </div>
-      <CardList phones={phonesListNew} title="Brand new models" />
+      {isLoading
+        ? <Loader />
+        : <CardList phones={phonesListNew} title="Brand new models" />}
       <CategorySection />
-      <CardList phones={phonesListDiscount} title="Hot prices" />
+      {isLoading
+        ? <Loader />
+        : <CardList phones={phonesListDiscount} title="Hot prices" />}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import cl from './CardItem.module.scss';
@@ -26,12 +27,12 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
         const storedCardItems = localStorage.getItem('AddedToCard');
         let phoneIds = storedCardItems ? JSON.parse(storedCardItems) : [];
 
-        if (phoneIds.includes(phone.id)) {
+        if (phoneIds.includes(phone.phoneId)) {
           phoneIds = phoneIds.filter(
-            (id: string) => id !== phone.id.toString(),
+            (id: string) => id !== phone.phoneId,
           );
         } else {
-          phoneIds.push(phone.id);
+          phoneIds.push(phone.phoneId);
         }
 
         localStorage.setItem('AddedToCard', JSON.stringify(phoneIds));
@@ -43,12 +44,12 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
           ? JSON.parse(storedFavoriteItems)
           : [];
 
-        if (phoneIds.includes(phone.id)) {
+        if (phoneIds.includes(phone.phoneId)) {
           phoneIds = phoneIds.filter(
-            (id: string) => id !== phone.id.toString(),
+            (id: string) => id !== phone.phoneId,
           );
         } else {
-          phoneIds.push(phone.id);
+          phoneIds.push(phone.phoneId);
         }
 
         localStorage.setItem('AddedToFavorite', JSON.stringify(phoneIds));
@@ -61,15 +62,15 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
     const storedCardItems = localStorage.getItem('AddedToCard');
     const phoneIds = storedCardItems ? JSON.parse(storedCardItems) : [];
 
-    setIsAddToCard(phoneIds.includes(phone.id));
-  }, [phone.id]);
+    setIsAddToCard(phoneIds.includes(phone.phoneId));
+  }, [phone.phoneId]);
 
   useEffect(() => {
     const storedFavoriteItems = localStorage.getItem('AddedToFavorite');
     const phoneIds = storedFavoriteItems ? JSON.parse(storedFavoriteItems) : [];
 
-    setIsFavorite(phoneIds.includes(phone.id));
-  }, [phone.id]);
+    setIsFavorite(phoneIds.includes(phone.phoneId));
+  }, [phone.phoneId]);
 
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events

@@ -8,7 +8,7 @@ import { Phone } from '../../types/Phone';
 export const FavoritePage = () => {
   const category = 'Favorites';
 
-  const [favoriteItems, setFavoriteItems] = useState<number[]>([]);
+  const [favoriteItems, setFavoriteItems] = useState<string[]>([]);
   const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
@@ -42,7 +42,8 @@ export const FavoritePage = () => {
   }, []);
 
   const favoritePhones = phones
-    .filter((phone) => favoriteItems.includes(phone.id));
+    .filter((phone) => favoriteItems.includes(String(phone.id))
+    || favoriteItems.includes(phone.phoneId));
 
   return (
     <div className={cl.container}>

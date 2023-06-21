@@ -41,10 +41,10 @@ export const Cart = () => {
 
   useEffect(() => {
     const cartItemsIds = localStorage.getItem('AddedToCard');
-    let cartIds: number[] = [];
+    let cartIds: string[] = [];
 
     if (cartItemsIds) {
-      cartIds = JSON.parse(cartItemsIds) as number[];
+      cartIds = JSON.parse(cartItemsIds);
 
       if (cartIds.length) {
         setIsCartEmpty(false);
@@ -54,7 +54,8 @@ export const Cart = () => {
     fetch(`${BASE_URL}/products`)
       .then((res) => res.json())
       .then(({ products }) => products
-        .filter((item: Phone) => cartIds?.includes(item.id)))
+        .filter((item: Phone) => cartIds?.includes(String(item.id))
+        || cartIds?.includes(item.phoneId)))
       .then((data) => {
         const cartItems = data.map((item: Phone) => ({ ...item, quantity: 1 }));
 

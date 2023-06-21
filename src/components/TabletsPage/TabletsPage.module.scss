@@ -3,13 +3,13 @@
 
 .wrapper {
   margin: 0 24px;
-  min-height: 100vh;
 }
 
 .container {
   max-width: 1136px;
   margin: 90px auto 80px;
   background-color: var(--black);
+  min-height: 100vh;
 }
 
 .title {

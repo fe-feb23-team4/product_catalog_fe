@@ -19,7 +19,8 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
   };
 
   const handleAction = useCallback(
-    (action: string) => {
+    (e: any, action: string) => {
+      e.stopPropagation();
       if (action === 'addToCard') {
         setIsAddToCard((prevState) => !prevState);
         const storedCardItems = localStorage.getItem('AddedToCard');
@@ -71,18 +72,22 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
   }, [phone.id]);
 
   return (
-    <div className={cl.cardItem}>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
-      <div className={cl.cardItem__img} onClick={handleNavigate}>
-        <img
-          src={`https://product-catalog-be-s8k7.onrender.com/${phone.image}`}
-          alt={phone.image.split('/')[2]}
-        />
-      </div>
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events
+    <div
+      className={cl.cardItem}
+      onClick={handleNavigate}
+    >
+      <div className={cl.cardItem__route}>
+        <div className={cl.cardItem__img}>
+          <img
+            src={`https://product-catalog-be-s8k7.onrender.com/${phone.image}`}
+            alt={phone.image.split('/')[2]}
+          />
+        </div>
 
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events */}
-      <div onClick={handleNavigate} className={cl.cardItem__nameContainer}>
-        <h3 className={cl.cardItem__name}>{phone.name}</h3>
+        <div className={cl.cardItem__nameContainer}>
+          <h3 className={cl.cardItem__name}>{phone.name}</h3>
+        </div>
       </div>
 
       <div className={cl.cardItem__price}>
@@ -112,11 +117,11 @@ export const CardItem: React.FC<Props> = ({ phone }) => {
       <div className={cl.cardItem__btnContainer}>
         <AddToCardBtn
           isAddToCard={isAddToCard}
-          handleAddToCard={() => handleAction('addToCard')}
+          handleAddToCard={(e: any) => handleAction(e, 'addToCard')}
         />
         <FavoriteBtn
           isFavorite={isFavorite}
-          handleAddToFavorite={() => handleAction('addToFavorite')}
+          handleAddToFavorite={(e: any) => handleAction(e, 'addToFavorite')}
         />
       </div>
     </div>

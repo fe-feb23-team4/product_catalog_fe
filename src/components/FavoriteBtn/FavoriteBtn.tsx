@@ -2,7 +2,7 @@ import cl from './FavoriteBtn.module.scss';
 
 interface Props {
   isFavorite: boolean;
-  handleAddToFavorite: () => void;
+  handleAddToFavorite: (e: any) => void;
 }
 
 export const FavoriteBtn: React.FC<Props> = ({

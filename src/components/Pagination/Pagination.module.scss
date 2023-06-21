@@ -17,7 +17,6 @@
 .list_item {
   display: inline-block;
   background-color: var(--surface-one);
-  border: 1px transparent solid;
   transition: all 1s;
 
   &__arrow {
@@ -45,7 +44,7 @@
   &__disabled:first-child,
   &__disabled:last-child {
     box-sizing: border-box;
-    border-color: var(--icons);
+    outline: 1px solid var(--icons);
     pointer-events: none;
     background-color: var(--black);
   }
@@ -56,8 +55,9 @@
   align-items: center;
   justify-content: center;
 
-  height: 32px;
-  width: 32px;
+  height: 31px;
+  width: 31px;
+  border: 1px solid transparent;
 
   font-family: 'Mont-Regular';
   line-height: 21px;

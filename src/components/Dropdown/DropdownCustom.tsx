@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import cl from './Dropdown.module.scss';
 import arrowUp from '../../assets/ArrowUp.svg';

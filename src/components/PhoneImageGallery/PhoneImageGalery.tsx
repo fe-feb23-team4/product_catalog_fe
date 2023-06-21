@@ -2,6 +2,7 @@
 import {
   FC, useCallback, useEffect, useState,
 } from 'react';
+import cn from 'classnames';
 
 import cl from './PhoneImageGallery.module.scss';
 
@@ -22,15 +23,29 @@ export const PhoneImageGalery:FC<Props> = ({ images }) => {
   }, [images]);
 
   return (
-    <div className={cl.images}>
-      <div className={cl.images__current}>
+    <div className={cn(
+      cl.images,
+      cl.grid__item__desktop_1_12,
+      cl.grid__item__tablet_1_7,
+      cl.grid__item__mobile_1_4,
+    )}
+    >
+      <div className={cn(
+        cl.images__current,
+        cl.grid__item__desktop_3_11,
+      )}
+      >
         <img
           src={`${ImgUrl}${mainImage}`}
           alt="current"
         />
       </div>
 
-      <div className={cl.images__all}>
+      <div className={cn(
+        cl.images__all,
+        cl.grid__item__desktop_1_2,
+      )}
+      >
         {images?.map((image) => (
           // eslint-disable-next-line jsx-a11y/no-static-element-interactions
           <div

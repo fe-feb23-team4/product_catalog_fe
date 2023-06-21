@@ -6,23 +6,25 @@
 
   @include tablet {
     margin-top: 64px;
+    overflow: visible;
   }
 
   @include mobile {
     margin-top: 56px;
-  }
-
-  &__container {
-    display: flex;
-    gap: 16px;
-
-    transition: transform 0.3s ease-in-out;
+    overflow: visible;
   }
 }
+
 .wrapper {
   display: flex;
   justify-content: space-between;
+  user-select: none;
+
+  @media (max-width: 380px) {
+    max-width: 136px;
+  }
 }
+
 .arrow__container {
   display: flex;
   gap: 16px;
@@ -42,5 +44,6 @@
 
   @include mobile {
     font-size: 22px;
+    line-height: 31px;
   }
 }

@@ -2,7 +2,7 @@ import cl from './AddToCardBtn.module.scss';
 
 interface Props {
   isAddToCard: boolean;
-  handleAddToCard: () => void;
+  handleAddToCard: (e: any) => void;
 }
 
 export const AddToCardBtn: React.FC<Props> = ({

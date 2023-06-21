@@ -1,0 +1,52 @@
+@import '../../styles/utils/mixins';
+
+.slider-items {
+  margin-top: 24px;
+  .swiper,
+  .swiper-container {
+    overflow: visible !important;
+  }
+
+  .swiper-slide {
+    flex-shrink: 0;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    user-select: none;
+    z-index: 100;
+    top: -9% !important;
+    background-color: var(--surface-two);
+    border: 1px solid var(--surface-two);
+    font-size: 5px;
+    width: 32px;
+    height: 32px;
+
+    @include desktop {
+      top: -8% !important;
+    }
+
+    &::after {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    & .swiper-button-disabled {
+      background-color: red;
+
+    }
+  }
+
+  .swiper-button-prev {
+    left: auto !important;
+    right: 48px !important;
+  }
+
+  .swiper-button-next {
+    right: 0 !important;
+  }
+
+  .swiper-button-disabled {
+    background-color: transparent;
+  }
+}

@@ -63,10 +63,12 @@
       gap: 24px;
       align-items: center;
       grid-template-columns: 10px 66px auto;
+      cursor: pointer;
 
       &-image {
         width: 66px;
         padding: 7px;
+        border-radius: 18%;
       }
       &-name {
         font-size: 14px;
@@ -86,8 +88,15 @@
         cursor: pointer;
 
         &.decrement {
-          border: 1px solid var(--surface-two);
-          color: var(--surface-two);
+          background-color: var(--surface-two);
+          color: var(--white);
+
+          &_disabled {
+            pointer-events: none;
+            border: 1px solid var(--surface-two);
+            color: var(--surface-two);
+            background-color: var(--surface-one);
+          }
         }
 
         &.increment {

@@ -29,9 +29,9 @@ function App() {
               <Route path="/favourite" element={<FavoritePage />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>
+            <Footer />
           </HashRouter>
         </div>
-        <Footer />
       </div>
     </MyContextProvider>
   );

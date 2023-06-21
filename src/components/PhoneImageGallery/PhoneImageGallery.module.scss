@@ -1,15 +1,27 @@
 @import "../../styles/utils/mixins.scss";
+@import "../../styles/utils/grid.scss";
 
 .images {
+  display: flex;
+  flex-direction: row-reverse;
   @include mobile {
     margin-bottom: 40px;
+    flex-direction: column;
   }
 
   &__current {
     padding: 7px;
-    border: 1px solid white;
     width: 100%;
-    
+    height: 250px;
+
+    @include desktop {
+      margin: 0 24px;
+    }
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
+
     img {
       width: 100%;
       max-height: 250px;
@@ -23,17 +35,24 @@
   }
 
   &__container {
-    border: 2px solid gold;
     height: 50px;
   }
 
   &__all {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 8px;
 
+    @include mobile {
+      flex-direction: row;
+      margin: 0 auto;
+    }
+
     img {
-      max-width: 100%;
+      width: 100%;
+      object-fit: contain;
+      display: block;
+      margin: auto;
     }
   }
 }

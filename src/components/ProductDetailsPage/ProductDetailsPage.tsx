@@ -102,10 +102,19 @@ export const ProductDetailsPage = () => {
           {phone?.name}
         </h1>
 
-        <div className={cl.product_page__content}>
+        <div className={cn(
+          cl.product_page__content,
+          cl.grid,
+        )}
+        >
           <PhoneImageGalery images={phone?.images} />
 
-          <div className={cl.product_page__content__params}>
+          <div className={cn(
+            cl.product_page__content__params,
+            cl.grid__item__desktop_14_20,
+            cl.grid__item__tablet_9_12,
+          )}
+          >
             <div className={cl.product_page__content__params}>
               <div className={cl.product__text}>
                 <div>Available colors</div>

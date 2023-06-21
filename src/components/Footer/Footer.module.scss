@@ -52,6 +52,13 @@
       font-size: 12px;
       line-height: 15px;
       color: #75767f;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        border-color: #313237;
+        transform: scale(1.1);
+      }
     }
   }
 

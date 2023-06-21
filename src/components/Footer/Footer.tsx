@@ -44,11 +44,16 @@ export const Footer = () => {
           </Link>
         </div>
         <div className={cl.footer__button__box}>
-          <p className={cl.footer__button__box__text}>Back to top</p>
+          <button
+            type="button"
+            onClick={handleScrollToTop}
+            className={cl.footer__button__box__text}
+          >
+            Back to top
+          </button>
           <button
             type="button"
             className={cl.footer__button}
-            onClick={handleScrollToTop}
           >
             <img src={arrow} alt="Button_icon" />
           </button>

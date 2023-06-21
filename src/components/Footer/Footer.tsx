@@ -47,7 +47,6 @@ export const Footer = () => {
           <button
             type="button"
             onClick={handleScrollToTop}
-            id="top"
             className={cl.footer__button__box__text}
           >
             Back to top

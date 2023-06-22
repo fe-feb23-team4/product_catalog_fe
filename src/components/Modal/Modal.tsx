@@ -35,7 +35,7 @@ export const Modal: React.FC<Props> = ({ isOpen, onClose, data }) => {
             <div className={cl.modalBody}>
               <p>Here is your shopping list: </p>
               <hr />
-              <ul>
+              <ul className={cl.modal__items_list}>
                 {data.map((item) => {
                   return (
                     <li key={item.id} className={cl.modal__item}>

@@ -7,11 +7,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
   padding: 16px;
   z-index: 10;
+  
 }
 
 .modal__item {
@@ -23,15 +23,21 @@
   color: var(--white);
   border-radius: 8px;
   margin: 16px auto;
-  padding: 20px 10px;
+  padding: 20px;
+  font-weight: 700;
+}
+
+.modal__items_list {
+  overflow-y: scroll;
+  max-height: 90vh;
+  padding: 0 8px;
 }
 
 .modalContent {
+  min-height: max-content;
   background-color: var(--surface-one);
   color: var(--white);
   border-radius: 8px;
-  width: 500px;
-  min-height: 150px;
   margin: 0 auto;
   padding: 20px;
   box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);

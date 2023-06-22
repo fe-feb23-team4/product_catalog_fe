@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/product_catalog_fe/static/css/main.ac36e920.css",
+    "main.css": "/product_catalog_fe/static/css/main.288cf648.css",
     "main.js": "/product_catalog_fe/static/js/main.3d737410.js",
     "static/js/787.04d647c9.chunk.js": "/product_catalog_fe/static/js/787.04d647c9.chunk.js",
     "static/media/category-phones.png": "/product_catalog_fe/static/media/category-phones.c0e4aa35be8b28bd15c9.png",
@@ -24,12 +24,12 @@
     "static/media/ArrowRightLight.svg": "/product_catalog_fe/static/media/ArrowRightLight.756d3b79b5aacd8a12e61c2aca7b8047.svg",
     "static/media/ArrowDown.svg": "/product_catalog_fe/static/media/ArrowDown.0a75b98d9165f32dc53134e728970af1.svg",
     "static/media/ArrowUp.svg": "/product_catalog_fe/static/media/ArrowUp.d7ccf9e94d5187a54e6e787c5eea5faf.svg",
-    "main.ac36e920.css.map": "/product_catalog_fe/static/css/main.ac36e920.css.map",
+    "main.288cf648.css.map": "/product_catalog_fe/static/css/main.288cf648.css.map",
     "main.3d737410.js.map": "/product_catalog_fe/static/js/main.3d737410.js.map",
     "787.04d647c9.chunk.js.map": "/product_catalog_fe/static/js/787.04d647c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac36e920.css",
+    "static/css/main.288cf648.css",
     "static/js/main.3d737410.js"
   ]
 }

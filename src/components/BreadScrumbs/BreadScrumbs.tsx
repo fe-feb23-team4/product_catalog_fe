@@ -13,7 +13,9 @@ export const Breadscrumbs: FC<Props> = ({ category, currentPage }) => {
   return (
     <div className={cl.breadcrumbs}>
       <NavLink to="/">
-        <HomeIcon />
+        <div className={cl.home_icon_wrapper}>
+          <HomeIcon />
+        </div>
       </NavLink>
 
       <Arrow />

@@ -64,6 +64,7 @@ export const Pagination: FC<Props> = ({
               }
 
               onArrowPageChange({ page: String(currentPage - 1) });
+              window.scrollTo(0, 0);
             }}
           >
             <img
@@ -106,6 +107,7 @@ export const Pagination: FC<Props> = ({
               }
 
               onArrowPageChange({ page: String(currentPage + 1) });
+              window.scrollTo(0, 0);
             }}
           >
             <img

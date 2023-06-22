@@ -31,9 +31,10 @@
       overflow: hidden;
       text-decoration: none;
       color: var(--white);
+      border-radius: 10px;
      
       &:hover img {
-        transform: scale(1.1);
+        transform: scale(105%);
       }
       
       &__image {

@@ -11,7 +11,11 @@ export const Footer = () => {
   return (
     <footer className={cl.footer}>
       <div className={cl.footer__container}>
-        <Link className={cl.footer__image} to="/">
+        <Link
+          className={cl.footer__image}
+          to="/"
+          onClick={handleScrollToTop}
+        >
           <img src={logo} alt="logo_icon" />
         </Link>
 
@@ -19,6 +23,7 @@ export const Footer = () => {
           <Link
             className={cl.footer__navItem}
             to="https://github.com/fe-feb23-team4/product_catalog_fe"
+            target="_blank"
           >
 
             <p>Github</p>
@@ -28,6 +33,7 @@ export const Footer = () => {
           <Link
             className={cl.footer__navItem}
             to="/"
+            onClick={handleScrollToTop}
           >
 
             <p>Contacts</p>
@@ -37,6 +43,7 @@ export const Footer = () => {
           <Link
             className={cl.footer__navItem}
             to="/"
+            onClick={handleScrollToTop}
           >
 
             <p>Rights</p>
@@ -44,7 +51,13 @@ export const Footer = () => {
           </Link>
         </div>
         <div className={cl.footer__button__box}>
-          <p className={cl.footer__button__box__text}>Back to top</p>
+          <button
+            type="button"
+            onClick={handleScrollToTop}
+            className={cl.footer__button__box__text}
+          >
+            Back to top
+          </button>
           <button
             type="button"
             className={cl.footer__button}

@@ -1,17 +1,25 @@
 .breadcrumbs {
   display: flex;
+  gap: 13px;
   align-items: center;
   margin-bottom: 24px;
-  font-size: 12px;
-  line-height: 12px;
 
   &__link {
-    margin-bottom: -2px;
+    margin-bottom: 2px;
     color: aliceblue;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: 'Mont-Semibold';
   }
 
   &__text {
-    margin-bottom: -2px;
     color: #75767f;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: 'Mont-Semibold';
   }
+}
+
+.home_icon_wrapper {
+  margin-bottom: -2px;
 }

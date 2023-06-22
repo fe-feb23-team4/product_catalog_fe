@@ -117,14 +117,14 @@
 
 .cactus1 {
   position:absolute;
-  top:90%;
+  top:87%;
   background-image: url('../../assets/images/cactus-1.png');
   height: 100px;
   width: 100px;
   animation: cactusAnim 3s linear infinite;
 
   @include mobile {
-    top: 91%;
+    top: 88%;
   }
 }
 
@@ -140,7 +140,7 @@
 
 .cactus2 {
   position:absolute;
-  top:93%;
+  top:92%;
   background-image: url('../../assets/images/cactus-2.png');
   height: 80px;
   width: 80px;

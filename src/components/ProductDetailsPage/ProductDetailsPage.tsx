@@ -128,7 +128,9 @@ export const ProductDetailsPage = () => {
       <div className={cl.product_page__wrapper}>
         <div className={cl.product_page__breadcrumbs}>
           <div className={cl.product_page__breadcrumbs__item}>
-            <img src={home} alt="home" />
+            <Link to="/">
+              <img src={home} alt="home" />
+            </Link>
           </div>
 
           <img src={arrowRight} alt="arrow" />

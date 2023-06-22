@@ -11,7 +11,11 @@ export const Footer = () => {
   return (
     <footer className={cl.footer}>
       <div className={cl.footer__container}>
-        <Link className={cl.footer__image} to="/">
+        <Link
+          className={cl.footer__image}
+          to="/"
+          onClick={handleScrollToTop}
+        >
           <img src={logo} alt="logo_icon" />
         </Link>
 
@@ -57,6 +61,7 @@ export const Footer = () => {
           <button
             type="button"
             className={cl.footer__button}
+            onClick={handleScrollToTop}
           >
             <img src={arrow} alt="Button_icon" />
           </button>

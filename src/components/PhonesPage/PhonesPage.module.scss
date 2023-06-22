@@ -28,20 +28,11 @@
   max-width: 1138px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 16px;
   margin: 24px auto 40px;
-}
-
-.phones_container_wrapper {
-  max-width: 272px;
-
-  @include tablet {
-    max-width: 288px;
-  }
 
   @include mobile {
-    max-width: 287px;
+    justify-content: center;
   }
 }
 
